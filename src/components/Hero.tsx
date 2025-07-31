@@ -1,0 +1,227 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image';
+
+interface Skill {
+  name: string;
+  image: string;
+  category: string;
+}
+
+const Hero = () => {
+  const skills: Skill[] = [
+    { name: 'React', image: '/skills/react.png', category: 'Frontend' },
+    { name: 'Next.js', image: '/skills/nextjs.png', category: 'Frontend' },
+    { name: 'JavaScript', image: '/skills/javascript.png', category: 'Language' },
+    { name: 'TypeScript', image: '/skills/typescript.png', category: 'Language' },
+    { name: 'HTML', image: '/skills/html.png', category: 'Frontend' },
+    { name: 'CSS', image: '/skills/css.png', category: 'Frontend' },
+    { name: 'Tailwind CSS', image: '/skills/tailwind.png', category: 'Frontend' },
+    { name: 'Bootstrap', image: '/skills/bootstrap.png', category: 'Frontend' },
+    { name: 'Node.js', image: '/skills/node.png', category: 'Backend' },
+    { name: 'Express.js', image: '/skills/express.png', category: 'Backend' },
+    { name: 'MongoDB', image: '/skills/mongodb.png', category: 'Database' },
+    { name: 'PostgreSQL', image: '/skills/PostgreSQL.png', category: 'Database' },
+    { name: 'MySQL', image: '/skills/MySQL.png', category: 'Database' },
+    { name: 'Docker', image: '/skills/Docker.png', category: 'DevOps' },
+    { name: 'AWS EC2', image: '/skills/AWSEC2.png', category: 'Cloud' },
+    { name: 'Git', image: '/skills/Git.png', category: 'Tools' },
+    { name: 'GitHub', image: '/skills/GitHub.png', category: 'Tools' },
+    { name: 'Linux', image: '/skills/Linux.png', category: 'OS' },
+    { name: 'Nginx', image: '/skills/Nginx.png', category: 'Server' },
+    { name: 'Heroku', image: '/skills/Heroku.png', category: 'Cloud' },
+    { name: 'WordPress', image: '/skills/Wordpress.png', category: 'CMS' },
+  ];
+
+  const scrollToContact = () => {
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+
+      <div className="w-full flex flex-col items-center justify-center flex-1 py-12 relative z-10">
+        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-blue-600 dark:text-blue-400 font-medium text-lg mb-4 mt-10"
+          >
+            Hello, I&apos;m
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+          >
+            Ravi Khokle
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-600 dark:text-gray-300 mb-8"
+          >
+            <TypeAnimation
+              sequence={[
+                'Full Stack Developer',
+                2000,
+                'Frontend Developer',
+                2000,
+                'Backend Developer',
+                2000,
+                'React Developer',
+                2000,
+                'Node.js Developer',
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ display: 'inline-block' }}
+              repeat={Infinity}
+            />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            I create exceptional digital experiences through innovative web development,
+            combining technical expertise with creative design to bring your ideas to life.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0 }}
+            className="flex items-center justify-between max-w-md mx-auto mb-12"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 flex items-center space-x-2"
+            >
+              <span>Get In Touch</span>
+              <ArrowRight size={20} />
+            </motion.button>
+
+            <div className="flex space-x-4">
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                href="https://github.com/ravikhokle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <Github size={24} />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                href="https://linkedin.com/in/ravikhokle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <Linkedin size={24} />
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Integrated Skills Section - Full Width */}  
+        </motion.div>
+        </div>
+
+        {/* Skills Section - Full Viewport Width */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="relative w-screen"
+        >
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.4 }}
+            className="text-center text-sm tracking-widest font-medium text-gray-600 dark:text-gray-400 mb-4"
+          >
+            TECHNOLOGIES I WORK WITH
+          </motion.h2>
+
+            {/* Fade Edges for better UX */}
+            <div className="relative w-full overflow-hidden py-6">
+              {/* Left Fade */}
+              <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-gray-800 dark:via-gray-800/70 dark:to-transparent z-10 pointer-events-none" />
+              {/* Right Fade */}
+              <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white via-white/70 to-transparent dark:from-gray-800 dark:via-gray-800/70 dark:to-transparent z-10 pointer-events-none" />
+            
+              {/* Scrolling Skill Icons */}
+              <motion.div
+                animate={{ x: [0, -1800] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 40,
+                  ease: "linear"
+                }}
+                className="flex w-max space-x-10"
+              >
+                {[...skills, ...skills].map((skill, index) => (
+                  <motion.div
+                    key={`${skill.name}-${index}`}
+                    whileHover={{ scale: 1.1, y: -8 }}
+                    className="group flex-shrink-0"
+                  >
+                    <div className="flex flex-col items-center p-4 min-w-[110px] relative pt-8">
+                      {/* Category Badge on hover */}
+                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-20">
+                        <span className="px-3 py-1 text-xs font-semibold text-white bg-blue-600 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out whitespace-nowrap">
+                          {skill.category}
+                        </span>
+                      </div>
+
+                      {/* Icon */}
+                      <div className="w-16 h-16 mb-3 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-sm group-hover:shadow-md transition-all duration-300">
+                        <Image
+                          src={skill.image}
+                          alt={skill.name}
+                          width={52}
+                          height={52}
+                          className="transition-transform duration-300 ease-in-out group-hover:scale-110"
+                        />
+                      </div>
+
+                      {/* Label */}
+                      <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 text-center transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                        {skill.name}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.section>
+
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
