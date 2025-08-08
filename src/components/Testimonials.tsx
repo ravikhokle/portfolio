@@ -70,7 +70,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,12 +79,12 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            What Clients Say
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            What <span className="text-[#ff6b35]">Clients</span> Say
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Don&apos;t just take my word for it. Here&apos;s what my clients have to say about
-            working with me and the results we&apos;ve achieved together.
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Don't just take my word for it. Here's what my clients have to say about
+            working with me and the results we've achieved together.
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ const Testimonials = () => {
               key={testimonial.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative"
+              className="bg-[#242424] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative border border-gray-700 hover:border-gray-600"
             >
               {/* Quote Icon */}
               <motion.div
@@ -108,7 +108,7 @@ const Testimonials = () => {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="absolute -top-4 -left-4 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -top-4 -left-4 w-12 h-12 bg-[#3b82f6] rounded-full flex items-center justify-center shadow-lg"
               >
                 <Quote className="text-white" size={20} />
               </motion.div>
@@ -118,19 +118,19 @@ const Testimonials = () => {
                 <div className="flex space-x-1 mr-2">
                   {renderStars(testimonial.rating)}
                 </div>
-                <span className="text-gray-600 dark:text-gray-400 text-sm">
+                <span className="text-gray-400 text-sm">
                   ({testimonial.rating}.0)
                 </span>
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                &quot;{testimonial.text}&quot;
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                "{testimonial.text}"
               </p>
 
               {/* Project Info */}
               <div className="mb-6">
-                <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                <span className="inline-block px-3 py-1 bg-[#3b82f6]/20 text-[#3b82f6] rounded-full text-sm font-medium">
                   {testimonial.project}
                 </span>
               </div>
@@ -140,20 +140,20 @@ const Testimonials = () => {
                 {/* Avatar Placeholder */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4 shadow-md"
+                  className="w-12 h-12 bg-gradient-to-br from-[#ff6b35] to-[#8b5cf6] rounded-full flex items-center justify-center mr-4 shadow-md"
                 >
                   <span className="text-white font-semibold">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </motion.div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <h4 className="font-semibold text-white">
                     {testimonial.name}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  <p className="text-gray-400 text-sm">
                     {testimonial.role}
                   </p>
-                  <p className="text-gray-500 dark:text-gray-500 text-xs">
+                  <p className="text-gray-500 text-xs">
                     {testimonial.company}
                   </p>
                 </div>
@@ -170,12 +170,12 @@ const Testimonials = () => {
           transition={{ delay: 0.4 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-[#ff6b35] to-[#8b5cf6] rounded-2xl p-8 text-white">
             <h3 className="text-3xl font-bold mb-4">
               Ready to Join These Success Stories?
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              Let&apos;s work together to create something amazing that drives real results
+              Let's work together to create something amazing that drives real results
               for your business.
             </p>
             <motion.button
@@ -187,7 +187,7 @@ const Testimonials = () => {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
+              className="px-8 py-4 bg-white text-[#ff6b35] font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
             >
               Start Your Project
             </motion.button>

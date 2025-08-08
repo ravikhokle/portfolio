@@ -44,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#1a1a1a] text-white">
 
       <div className="w-full flex flex-col items-center justify-center flex-1 py-12 relative z-10">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -53,20 +53,39 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-8 mt-20"
+          >
+            <div className="w-32 h-32 mx-auto rounded-full bg-white p-0.5">
+              {/* Profile Image */}
+              <div className="w-full h-full rounded-full overflow-hidden">
+                <img 
+                  src="https://avatars.githubusercontent.com/u/131489761?v=4" 
+                  alt="Ravi Khokle" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-blue-600 dark:text-blue-400 font-medium text-lg mb-4 mt-10"
+            className="text-[#ff6b35] font-medium text-lg mb-4"
           >
-            Hello, I&apos;m
+            Hello, I'm
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6"
           >
             Ravi Khokle
           </motion.h1>
@@ -75,7 +94,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-600 dark:text-gray-300 mb-8"
+            className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-300 mb-8"
           >
             <TypeAnimation
               sequence={[
@@ -101,35 +120,46 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             I create exceptional digital experiences through innovative web development,
             combining technical expertise with creative design to bring your ideas to life.
+            Passionate about building scalable solutions that make a difference.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="flex items-center justify-between max-w-md mx-auto mb-12"
+            className="flex items-center justify-center space-x-6 mb-12"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 flex items-center space-x-2"
+              className="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-full transition-colors duration-200 flex items-center space-x-2"
             >
               <span>Get In Touch</span>
               <ArrowRight size={20} />
             </motion.button>
 
-            <div className="flex space-x-4">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/resume.pdf"
+              download
+              className="px-8 py-4 border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-semibold rounded-full transition-colors duration-200"
+            >
+              Download CV
+            </motion.a>
+
+            <div className="flex space-x-4 ml-4">
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 href="https://github.com/ravikhokle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="p-3 text-gray-300 hover:text-white transition-colors"
               >
                 <Github size={24} />
               </motion.a>
@@ -138,7 +168,7 @@ const Hero = () => {
                 href="https://linkedin.com/in/ravikhokle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="p-3 text-gray-300 hover:text-white transition-colors"
               >
                 <Linkedin size={24} />
               </motion.a>
@@ -160,7 +190,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="text-center text-sm tracking-widest font-medium text-gray-600 dark:text-gray-400 mb-4"
+            className="text-center text-sm tracking-widest font-medium text-gray-500 mb-4"
           >
             TECHNOLOGIES I WORK WITH
           </motion.h2>
@@ -168,9 +198,9 @@ const Hero = () => {
             {/* Fade Edges for better UX */}
             <div className="relative w-full overflow-hidden py-6">
               {/* Left Fade */}
-              <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-gray-800 dark:via-gray-800/70 dark:to-transparent z-10 pointer-events-none" />
+              <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/70 to-transparent z-10 pointer-events-none" />
               {/* Right Fade */}
-              <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white via-white/70 to-transparent dark:from-gray-800 dark:via-gray-800/70 dark:to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#1a1a1a] via-[#1a1a1a]/70 to-transparent z-10 pointer-events-none" />
             
               {/* Scrolling Skill Icons */}
               <motion.div
@@ -192,13 +222,13 @@ const Hero = () => {
                     <div className="flex flex-col items-center p-4 min-w-[110px] relative pt-8">
                       {/* Category Badge on hover */}
                       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-20">
-                        <span className="px-3 py-1 text-xs font-semibold text-white bg-blue-600 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out whitespace-nowrap">
+                        <span className="px-3 py-1 text-xs font-semibold text-white bg-[#3b82f6] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out whitespace-nowrap">
                           {skill.category}
                         </span>
                       </div>
 
                       {/* Icon */}
-                      <div className="w-16 h-16 mb-3 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-sm group-hover:shadow-md transition-all duration-300">
+                      <div className="w-16 h-16 mb-3 flex items-center justify-center bg-[#242424] border border-gray-700 rounded-xl shadow-sm group-hover:shadow-md group-hover:border-gray-600 transition-all duration-300">
                         <Image
                           src={skill.image}
                           alt={skill.name}
@@ -209,7 +239,7 @@ const Hero = () => {
                       </div>
 
                       {/* Label */}
-                      <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 text-center transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      <p className="text-sm font-semibold text-gray-300 text-center transition-colors duration-300 group-hover:text-[#3b82f6]">
                         {skill.name}
                       </p>
                     </div>

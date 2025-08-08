@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -30,10 +30,10 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            About Me
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-[#ff6b35]">ABOUT</span> Me
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Passionate developer with a keen eye for design and a love for creating
             digital experiences that make a difference.
           </p>
@@ -51,7 +51,7 @@ const About = () => {
             <div className="relative mb-8">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-64 h-64 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl"
+                className="w-64 h-64 mx-auto bg-gradient-to-br from-[#ff6b35] to-[#8b5cf6] rounded-full flex items-center justify-center shadow-2xl"
               >
                 <div className="text-white text-8xl font-bold">RK</div>
               </motion.div>
@@ -66,22 +66,22 @@ const About = () => {
 
             {/* Bio */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Hi, I&apos;m Ravi Khokle
+              <h3 className="text-3xl font-bold text-white">
+                Hi, I'm Ravi Khokle
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                I&apos;m a passionate Full Stack Developer and UI/UX Designer with over 5 years
+              <p className="text-gray-400 leading-relaxed">
+                I'm a passionate Full Stack Developer and UI/UX Designer with over 5 years
                 of experience creating digital solutions that make a real impact. My journey
                 started with a curiosity about how websites work, and it has evolved into a
                 deep passion for crafting beautiful, functional, and user-centered applications.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing
+              <p className="text-gray-400 leading-relaxed">
+                When I'm not coding, you'll find me exploring new technologies, contributing
                 to open-source projects, or enjoying a good cup of coffee while brainstorming
                 the next big idea. I believe in the power of technology to solve real-world
                 problems and create meaningful experiences.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 My approach combines technical expertise with creative design thinking,
                 ensuring that every project not only works flawlessly but also delights users
                 and drives business results.
@@ -99,7 +99,7 @@ const About = () => {
           >
             {/* Skills */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              <h3 className="text-2xl font-bold text-white mb-8">
                 Skills & Expertise
               </h3>
               <div className="space-y-6">
@@ -112,20 +112,20 @@ const About = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-900 dark:text-white">
+                      <span className="font-medium text-white">
                         {skill.name}
                       </span>
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                      <span className="text-[#3b82f6] font-semibold">
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                    <div className="w-full bg-gray-700 rounded-full h-3">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: index * 0.1 }}
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full"
+                        className="bg-gradient-to-r from-[#ff6b35] to-[#8b5cf6] h-3 rounded-full"
                       />
                     </div>
                   </motion.div>
@@ -135,7 +135,7 @@ const About = () => {
 
             {/* Stats */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              <h3 className="text-2xl font-bold text-white mb-8">
                 By the Numbers
               </h3>
               <div className="grid grid-cols-2 gap-6">
@@ -147,15 +147,15 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
-                    className="bg-white dark:bg-gray-900 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-[#242424] rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
                   >
-                    <div className="text-blue-600 dark:text-blue-400 mb-3 flex justify-center">
+                    <div className="text-[#3b82f6] mb-3 flex justify-center">
                       {stat.icon}
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <div className="text-3xl font-bold text-white mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
+                    <div className="text-gray-400 text-sm">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -173,35 +173,35 @@ const About = () => {
           transition={{ delay: 0.4 }}
           className="mt-20 text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <h3 className="text-2xl font-bold text-white mb-8">
             Fun Facts About Me
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+              className="bg-[#242424] rounded-2xl p-6 shadow-lg border border-gray-700 hover:border-gray-600 transition-all duration-300"
             >
               <div className="text-4xl mb-4">🚀</div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-400">
                 I deployed my first website at age 16 and never looked back!
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+              className="bg-[#242424] rounded-2xl p-6 shadow-lg border border-gray-700 hover:border-gray-600 transition-all duration-300"
             >
               <div className="text-4xl mb-4">🎮</div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-400">
                 Gaming taught me problem-solving skills that I use in coding every day.
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+              className="bg-[#242424] rounded-2xl p-6 shadow-lg border border-gray-700 hover:border-gray-600 transition-all duration-300"
             >
               <div className="text-4xl mb-4">🌱</div>
-              <p className="text-gray-600 dark:text-gray-400">
-                I&apos;m always learning new technologies and love sharing knowledge with others.
+              <p className="text-gray-400">
+                I'm always learning new technologies and love sharing knowledge with others.
               </p>
             </motion.div>
           </div>

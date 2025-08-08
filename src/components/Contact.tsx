@@ -9,8 +9,7 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    message: '',
-    budget: ''
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -41,8 +40,7 @@ const Contact = () => {
           name: '',
           email: '',
           subject: '',
-          message: '',
-          budget: ''
+          message: ''
         });
         
         setSubmitStatus('success');
@@ -102,7 +100,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -111,11 +109,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Let&apos;s Work Together
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Let's Work <span className="text-[#ff6b35]">Together</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Have a project in mind? Let&apos;s discuss how we can bring your ideas to life
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Have a project in mind? Let's discuss how we can bring your ideas to life
             with cutting-edge technology and stunning design.
           </p>
         </motion.div>
@@ -127,16 +125,16 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl"
+            className="bg-[#242424] rounded-2xl p-8 shadow-xl border border-gray-700"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl font-bold text-white mb-8">
               Send Me a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -146,12 +144,12 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white transition-colors"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -161,50 +159,30 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white transition-colors"
+                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white transition-colors"
-                    placeholder="Project inquiry"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Budget Range
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white transition-colors"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="under-1k">Under $1,000</option>
-                    <option value="1k-5k">$1,000 - $5,000</option>
-                    <option value="5k-10k">$5,000 - $10,000</option>
-                    <option value="10k-plus">$10,000+</option>
-                  </select>
-                </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  Subject *
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
+                  placeholder="Project inquiry"
+                />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -214,7 +192,7 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors resize-none"
                   placeholder="Tell me about your project, goals, and timeline..."
                 ></textarea>
               </div>
@@ -224,7 +202,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="w-full py-4 bg-[#3b82f6] hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -241,10 +219,10 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center space-x-2 text-green-600 dark:text-green-400"
+                  className="flex items-center space-x-2 text-green-400"
                 >
                   <CheckCircle size={20} />
-                  <span>Message sent successfully! I&apos;ll get back to you soon.</span>
+                  <span>Message sent successfully! I'll get back to you soon.</span>
                 </motion.div>
               )}
 
@@ -252,7 +230,7 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center space-x-2 text-red-600 dark:text-red-400"
+                  className="flex items-center space-x-2 text-red-400"
                 >
                   <AlertCircle size={20} />
                   <span>Error sending message. Please try again or email me directly.</span>
@@ -270,13 +248,13 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              <h3 className="text-2xl font-bold text-white mb-8">
                 Get in Touch
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                I&apos;m always excited to work on new projects and collaborate with amazing people.
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                I'm always excited to work on new projects and collaborate with amazing people.
                 Whether you have a specific project in mind or just want to explore possibilities,
-                don&apos;t hesitate to reach out!
+                don't hesitate to reach out!
               </p>
             </div>
 
@@ -290,25 +268,25 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-[#242424] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
+                    <div className="w-12 h-12 bg-[#3b82f6]/20 rounded-full flex items-center justify-center text-[#3b82f6]">
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                      <h4 className="font-semibold text-white">
                         {info.label}
                       </h4>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                          className="text-gray-400 hover:text-[#3b82f6] transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <span className="text-gray-600 dark:text-gray-400">
+                        <span className="text-gray-400">
                           {info.value}
                         </span>
                       )}
@@ -320,7 +298,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <h4 className="font-semibold text-white mb-4">
                 Connect with Me
               </h4>
               <div className="flex space-x-4">
@@ -335,7 +313,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.1 }}
-                    className={`w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 ${social.color} transition-colors`}
+                    className={`w-12 h-12 bg-[#242424] border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-[#3b82f6] transition-colors`}
                   >
                     {social.icon}
                   </motion.a>
@@ -349,10 +327,10 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-gradient-to-r from-green-500 to-teal-500 rounded-xl p-6 text-white"
+              className="bg-gradient-to-r from-[#ff6b35] to-[#8b5cf6] rounded-xl p-6 text-white"
             >
               <h4 className="font-semibold mb-2">⚡ Quick Response</h4>
-              <p className="text-green-100">
+              <p className="opacity-90">
                 I typically respond to messages within 24 hours. For urgent projects,
                 feel free to call me directly!
               </p>

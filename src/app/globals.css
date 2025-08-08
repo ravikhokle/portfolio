@@ -5,11 +5,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-orange: #ff6b35;
+  --primary-purple: #8b5cf6;
+  --primary-pink: #ec4899;
+  --primary-blue: #3b82f6;
+  --dark-bg: #1a1a1a;
+  --darker-bg: #141414;
+  --card-bg: #242424;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #1a1a1a;
+  --foreground: #f3f4f6;
 }
 
 body {
@@ -24,30 +31,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #2d2d2d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #555;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: #2d2d2d;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #555;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #666;
-  }
+  background: #666;
 }
 
 /* Smooth scrolling */
@@ -71,11 +64,11 @@ html {
 
 /* Text selection */
 ::selection {
-  background: #3b82f6;
+  background: #ff6b35;
   color: white;
 }
 
 ::-moz-selection {
-  background: #3b82f6;
+  background: #ff6b35;
   color: white;
 }

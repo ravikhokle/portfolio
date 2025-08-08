@@ -23,8 +23,7 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -44,7 +43,7 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg'
+          ? 'bg-[#1a1a1a]/90 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -53,9 +52,9 @@ const Header = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="font-bold text-2xl text-gray-900 dark:text-white"
+            className="font-bold text-2xl text-white"
           >
-            Ravi Khokle
+            <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -65,7 +64,7 @@ const Header = () => {
                 key={item.name}
                 whileHover={{ y: -2 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                className="text-gray-300 hover:text-white transition-colors font-medium"
               >
                 {item.name}
               </motion.button>
@@ -78,7 +77,7 @@ const Header = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-full bg-[#242424] text-gray-300 hover:bg-gray-600 hover:text-white transition-colors"
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -88,7 +87,7 @@ const Header = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+              className="md:hidden p-2 rounded-full bg-[#242424] text-gray-300"
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </motion.button>
@@ -102,7 +101,7 @@ const Header = () => {
             opacity: isMobileMenuOpen ? 1 : 0,
             height: isMobileMenuOpen ? 'auto' : 0,
           }}
-          className="md:hidden overflow-hidden bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-2"
+          className="md:hidden overflow-hidden bg-[#242424] rounded-lg shadow-lg mt-2"
         >
           <div className="py-4 space-y-2">
             {navItems.map((item) => (
@@ -110,7 +109,7 @@ const Header = () => {
                 key={item.name}
                 whileHover={{ x: 10 }}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
               >
                 {item.name}
               </motion.button>
