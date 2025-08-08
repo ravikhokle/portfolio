@@ -100,39 +100,39 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 px-4">
             Let's Work <span className="text-[#ff6b35]">Together</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             Have a project in mind? Let's discuss how we can bring your ideas to life
             with cutting-edge technology and stunning design.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#242424] rounded-2xl p-8 shadow-xl border border-gray-700"
+            className="bg-[#242424] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-700"
           >
-            <h3 className="text-2xl font-bold text-white mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
               Send Me a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *

@@ -48,40 +48,37 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Mobile Menu Button + Logo */}
-          <div className="flex items-center space-x-4">
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-full bg-[#242424] text-gray-300"
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
-
-            {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="font-bold text-2xl text-white"
-            >
-              <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
-            </motion.div>
-          </div>
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="font-bold text-xl sm:text-2xl text-white"
+          >
+            <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
                 whileHover={{ y: -2 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
+                className="text-gray-300 hover:text-white transition-colors font-medium text-sm lg:text-base"
               >
                 {item.name}
               </motion.button>
             ))}
           </nav>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-full bg-[#242424] text-gray-300 hover:bg-gray-600 hover:text-white transition-colors"
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </motion.button>
         </div>
 
         {/* Mobile Navigation */}
@@ -91,15 +88,15 @@ const Header = () => {
             opacity: isMobileMenuOpen ? 1 : 0,
             height: isMobileMenuOpen ? 'auto' : 0,
           }}
-          className="md:hidden overflow-hidden bg-[#242424] rounded-lg shadow-lg mt-2"
+          className="md:hidden overflow-hidden bg-[#242424] rounded-lg shadow-lg mt-2 mx-2"
         >
-          <div className="py-4 space-y-2">
+          <div className="py-4 space-y-1">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
                 whileHover={{ x: 10 }}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
+                className="block w-full text-left px-6 py-3 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors text-base font-medium"
               >
                 {item.name}
               </motion.button>

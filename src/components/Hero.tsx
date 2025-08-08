@@ -46,8 +46,8 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#1a1a1a] text-white">
 
-      <div className="w-full flex flex-col items-center justify-center flex-1 py-12 relative z-10">
-        <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div className="w-full flex flex-col items-center justify-center flex-1 py-8 sm:py-12 relative z-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,9 +58,9 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-8 mt-20"
+            className="mb-6 sm:mb-8 mt-16 sm:mt-20"
           >
-            <div className="w-32 h-32 mx-auto rounded-full bg-white p-0.5">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-0.5">
               {/* Profile Image */}
               <div className="w-full h-full rounded-full overflow-hidden">
                 <img 
@@ -76,7 +76,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-[#ff6b35] font-medium text-lg mb-4"
+            className="text-[#ff6b35] font-medium text-base sm:text-lg mb-3 sm:mb-4"
           >
             Hello, I'm
           </motion.p>
@@ -85,7 +85,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 px-2"
           >
             Ravi Khokle
           </motion.h1>
@@ -94,7 +94,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-300 mb-8"
+            className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-medium text-gray-300 mb-6 sm:mb-8 px-2"
           >
             <TypeAnimation
               sequence={[
@@ -120,7 +120,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           >
             I create exceptional digital experiences through innovative web development,
             combining technical expertise with creative design to bring your ideas to life.
@@ -131,13 +131,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="flex items-center justify-center space-x-6 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12 px-4"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-full transition-colors duration-200 flex items-center space-x-2"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-full transition-colors duration-200 flex items-center justify-center space-x-2"
             >
               <span>Get In Touch</span>
               <ArrowRight size={20} />
@@ -148,12 +148,12 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               href="/resume.pdf"
               download
-              className="px-8 py-4 border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-semibold rounded-full transition-colors duration-200"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-semibold rounded-full transition-colors duration-200 text-center"
             >
               Download CV
             </motion.a>
 
-            <div className="flex space-x-4 ml-4">
+            <div className="flex space-x-4">
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 href="https://github.com/ravikhokle"
@@ -184,7 +184,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="relative w-screen"
+          className="relative w-full overflow-hidden"
         >
           <motion.h2
             initial={{ opacity: 0 }}

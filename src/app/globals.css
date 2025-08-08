@@ -20,9 +20,17 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--dark-bg);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -43,9 +51,13 @@ body {
   background: #666;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Prevent horizontal overflow */
+* {
+  box-sizing: border-box;
+}
+
+.overflow-hidden-x {
+  overflow-x: hidden;
 }
 
 /* Animation classes */
