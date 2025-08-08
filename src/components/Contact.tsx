@@ -61,19 +61,19 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       label: "Email",
-      value: "ravi@ravikhokle.dev",
-      href: "mailto:ravi@ravikhokle.dev"
+      value: "ravikhokle1@gmail.com",
+      href: "mailto:ravikhokle1@gmail.com"
     },
     {
       icon: <Phone size={24} />,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "+91 7218014410",
+      href: "tel:+917218014410"
     },
     {
       icon: <MapPin size={24} />,
       label: "Location",
-      value: "Available Worldwide",
+      value: "Pune, India",
       href: null
     }
   ];

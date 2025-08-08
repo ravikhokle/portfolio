@@ -1,15 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Heart, ArrowUp, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const quickLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
@@ -69,12 +63,13 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <motion.h3
+            <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold mb-4"
+              className="font-bold text-2xl text-white mb-4 inline-block"
+              style={{ transformOrigin: 'center' }}
             >
-              <span className="text-[#ff6b35]">Ravi</span> <span className="text-[#8b5cf6]">Khokle</span>
-            </motion.h3>
+              <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
+            </motion.div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Full Stack Developer & UI/UX Designer creating digital experiences
               that make a difference. Let's build something amazing together.
