@@ -53,7 +53,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="font-bold text-xl sm:text-2xl text-white"
           >
-            <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
+            Ravi Khokle
           </motion.div>
 
           {/* Desktop Navigation */}

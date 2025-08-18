@@ -72,7 +72,7 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-[#ff6b35]">SERVICES</span> I Offer
+            <span className="text-[#3b82f6]">SERVICES</span> I Offer
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             I help businesses and individuals create powerful digital experiences

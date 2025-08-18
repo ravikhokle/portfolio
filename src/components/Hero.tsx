@@ -36,6 +36,8 @@ const Hero = () => {
     { name: 'WordPress', image: '/skills/Wordpress.png', category: 'CMS' },
   ];
 
+  const raviImage = '/images/me/new.png'
+
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
     if (element) {
@@ -60,11 +62,11 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-6 sm:mb-8 mt-16 sm:mt-20"
           >
-            <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-0.5">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto rounded-full bg-gradient-to-br from-blue-300 to-blue-600 p-0.5">
               {/* Profile Image */}
               <div className="w-full h-full rounded-full overflow-hidden">
                 <img 
-                  src="https://avatars.githubusercontent.com/u/131489761?v=4" 
+                  src={raviImage}
                   alt="Ravi Khokle" 
                   className="w-full h-full object-cover"
                 />

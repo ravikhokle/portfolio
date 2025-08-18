@@ -4,6 +4,7 @@
   --color-*: initial;
   --color-background: light-dark(white, #0a0a0a);
   --color-foreground: light-dark(#171717, #ededed);
+  
 }
 
 @layer base {

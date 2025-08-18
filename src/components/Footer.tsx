@@ -68,7 +68,7 @@ const Footer = () => {
               className="font-bold text-2xl text-white mb-4 inline-block"
               style={{ transformOrigin: 'center' }}
             >
-              <span className="text-[#ff6b35]">R</span>avi <span className="text-[#8b5cf6]">K</span>hokle
+              Ravi Khokle
             </motion.div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Full Stack Developer & UI/UX Designer creating digital experiences

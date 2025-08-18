@@ -13,7 +13,7 @@ const Projects = () => {
       solution: "Created an interactive platform with step-by-step tutorials and live code examples.",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
       results: "Helped 10,000+ developers learn HTML fundamentals.",
-      image: "/projects/internshipYatra.png",
+      image: "images/projects/internshipYatra.png",
       liveUrl: "https://html-tutorial-demo.com",
       githubUrl: "https://github.com/ravikhokle/html-tutorial",
       featured: true,
@@ -26,7 +26,7 @@ const Projects = () => {
       solution: "Built a comprehensive guide with interactive examples and real-world projects.",
       tech: ["CSS3", "Sass", "Flexbox", "Grid", "JavaScript"],
       results: "Increased CSS proficiency for 5,000+ developers worldwide.",
-      image: "/projects/resumeBuilder.png",
+      image: "images/projects/resumeBuilder.png",
       liveUrl: "https://css-tutorial-demo.com",
       githubUrl: "https://github.com/ravikhokle/css-tutorial",
       featured: true,
@@ -62,7 +62,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-[#ff6b35]">PROJECTS</span>
+            <span className="text-[#3b82f6]">PROJECTS</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Here are some of my recent projects that showcase my skills in full-stack development,

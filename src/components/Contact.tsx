@@ -110,7 +110,7 @@ const Contact = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 px-4">
-            Let's Work <span className="text-[#ff6b35]">Together</span>
+            Let's Work <span className="text-[#3b82f6]">Together</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             Have a project in mind? Let's discuss how we can bring your ideas to life
