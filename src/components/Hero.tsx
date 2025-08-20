@@ -13,30 +13,30 @@ interface Skill {
 
 const Hero = () => {
   const skills: Skill[] = [
-    { name: 'React', image: '/images/skills/react.png', category: 'Frontend' },
-    { name: 'Next.js', image: '/images/skills/nextjs.png', category: 'Frontend' },
-    { name: 'JavaScript', image: '/images/skills/javascript.png', category: 'Language' },
-    { name: 'TypeScript', image: '/images/skills/typescript.png', category: 'Language' },
-    { name: 'HTML', image: '/images/skills/html.png', category: 'Frontend' },
-    { name: 'CSS', image: '/images/skills/css.png', category: 'Frontend' },
-    { name: 'Tailwind CSS', image: '/images/skills/tailwind.png', category: 'Frontend' },
-    { name: 'Bootstrap', image: '/images/skills/bootstrap.png', category: 'Frontend' },
-    { name: 'Node.js', image: '/images/skills/node.png', category: 'Backend' },
-    { name: 'Express.js', image: '/images/skills/express.png', category: 'Backend' },
-    { name: 'MongoDB', image: '/images/skills/mongodb.png', category: 'Database' },
-    { name: 'PostgreSQL', image: '/images/skills/PostgreSQL.png', category: 'Database' },
-    { name: 'MySQL', image: '/images/skills/MySQL.png', category: 'Database' },
-    { name: 'Docker', image: '/images/skills/Docker.png', category: 'DevOps' },
-    { name: 'AWS EC2', image: '/images/skills/AWSEC2.png', category: 'Cloud' },
-    { name: 'Git', image: '/images/skills/Git.png', category: 'Tools' },
-    { name: 'GitHub', image: '/images/skills/GitHub.png', category: 'Tools' },
-    { name: 'Linux', image: '/images/skills/Linux.png', category: 'OS' },
-    { name: 'Nginx', image: '/images/skills/Nginx.png', category: 'Server' },
-    { name: 'Heroku', image: '/images/skills/Heroku.png', category: 'Cloud' },
-    { name: 'WordPress', image: '/images/skills/Wordpress.png', category: 'CMS' },
+    { name: 'React', image: '/Images/skills/react.png', category: 'Frontend' },
+    { name: 'Next.js', image: '/Images/skills/nextjs.png', category: 'Frontend' },
+    { name: 'JavaScript', image: '/Images/skills/javascript.png', category: 'Language' },
+    { name: 'TypeScript', image: '/Images/skills/typescript.png', category: 'Language' },
+    { name: 'HTML', image: '/Images/skills/html.png', category: 'Frontend' },
+    { name: 'CSS', image: '/Images/skills/css.png', category: 'Frontend' },
+    { name: 'Tailwind CSS', image: '/Images/skills/tailwind.png', category: 'Frontend' },
+    { name: 'Bootstrap', image: '/Images/skills/bootstrap.png', category: 'Frontend' },
+    { name: 'Node.js', image: '/Images/skills/node.png', category: 'Backend' },
+    { name: 'Express.js', image: '/Images/skills/express.png', category: 'Backend' },
+    { name: 'MongoDB', image: '/Images/skills/mongodb.png', category: 'Database' },
+    { name: 'PostgreSQL', image: '/Images/skills/PostgreSQL.png', category: 'Database' },
+    { name: 'MySQL', image: '/Images/skills/MySQL.png', category: 'Database' },
+    { name: 'Docker', image: '/Images/skills/Docker.png', category: 'DevOps' },
+    { name: 'AWS EC2', image: '/Images/skills/AWSEC2.png', category: 'Cloud' },
+    { name: 'Git', image: '/Images/skills/Git.png', category: 'Tools' },
+    { name: 'GitHub', image: '/Images/skills/GitHub.png', category: 'Tools' },
+    { name: 'Linux', image: '/Images/skills/Linux.png', category: 'OS' },
+    { name: 'Nginx', image: '/Images/skills/Nginx.png', category: 'Server' },
+    { name: 'Heroku', image: '/Images/skills/Heroku.png', category: 'Cloud' },
+    { name: 'WordPress', image: '/Images/skills/Wordpress.png', category: 'CMS' },
   ];
 
-  const raviImage = '/images/me/ravikhokle.png';
+  const raviImage = '/Images/me/ravikhokle.png';
 
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
