@@ -13,30 +13,30 @@ interface Skill {
 
 const Hero = () => {
   const skills: Skill[] = [
-    { name: 'React', image: '/skills/react.png', category: 'Frontend' },
-    { name: 'Next.js', image: '/skills/nextjs.png', category: 'Frontend' },
-    { name: 'JavaScript', image: '/skills/javascript.png', category: 'Language' },
-    { name: 'TypeScript', image: '/skills/typescript.png', category: 'Language' },
-    { name: 'HTML', image: '/skills/html.png', category: 'Frontend' },
-    { name: 'CSS', image: '/skills/css.png', category: 'Frontend' },
-    { name: 'Tailwind CSS', image: '/skills/tailwind.png', category: 'Frontend' },
-    { name: 'Bootstrap', image: '/skills/bootstrap.png', category: 'Frontend' },
-    { name: 'Node.js', image: '/skills/node.png', category: 'Backend' },
-    { name: 'Express.js', image: '/skills/express.png', category: 'Backend' },
-    { name: 'MongoDB', image: '/skills/mongodb.png', category: 'Database' },
-    { name: 'PostgreSQL', image: '/skills/PostgreSQL.png', category: 'Database' },
-    { name: 'MySQL', image: '/skills/MySQL.png', category: 'Database' },
-    { name: 'Docker', image: '/skills/Docker.png', category: 'DevOps' },
-    { name: 'AWS EC2', image: '/skills/AWSEC2.png', category: 'Cloud' },
-    { name: 'Git', image: '/skills/Git.png', category: 'Tools' },
-    { name: 'GitHub', image: '/skills/GitHub.png', category: 'Tools' },
-    { name: 'Linux', image: '/skills/Linux.png', category: 'OS' },
-    { name: 'Nginx', image: '/skills/Nginx.png', category: 'Server' },
-    { name: 'Heroku', image: '/skills/Heroku.png', category: 'Cloud' },
-    { name: 'WordPress', image: '/skills/Wordpress.png', category: 'CMS' },
+    { name: 'React', image: '/images/skills/react.png', category: 'Frontend' },
+    { name: 'Next.js', image: '/images/skills/nextjs.png', category: 'Frontend' },
+    { name: 'JavaScript', image: '/images/skills/javascript.png', category: 'Language' },
+    { name: 'TypeScript', image: '/images/skills/typescript.png', category: 'Language' },
+    { name: 'HTML', image: '/images/skills/html.png', category: 'Frontend' },
+    { name: 'CSS', image: '/images/skills/css.png', category: 'Frontend' },
+    { name: 'Tailwind CSS', image: '/images/skills/tailwind.png', category: 'Frontend' },
+    { name: 'Bootstrap', image: '/images/skills/bootstrap.png', category: 'Frontend' },
+    { name: 'Node.js', image: '/images/skills/node.png', category: 'Backend' },
+    { name: 'Express.js', image: '/images/skills/express.png', category: 'Backend' },
+    { name: 'MongoDB', image: '/images/skills/mongodb.png', category: 'Database' },
+    { name: 'PostgreSQL', image: '/images/skills/PostgreSQL.png', category: 'Database' },
+    { name: 'MySQL', image: '/images/skills/MySQL.png', category: 'Database' },
+    { name: 'Docker', image: '/images/skills/Docker.png', category: 'DevOps' },
+    { name: 'AWS EC2', image: '/images/skills/AWSEC2.png', category: 'Cloud' },
+    { name: 'Git', image: '/images/skills/Git.png', category: 'Tools' },
+    { name: 'GitHub', image: '/images/skills/GitHub.png', category: 'Tools' },
+    { name: 'Linux', image: '/images/skills/Linux.png', category: 'OS' },
+    { name: 'Nginx', image: '/images/skills/Nginx.png', category: 'Server' },
+    { name: 'Heroku', image: '/images/skills/Heroku.png', category: 'Cloud' },
+    { name: 'WordPress', image: '/images/skills/Wordpress.png', category: 'CMS' },
   ];
 
-  const raviImage = '/images/me/new.png'
+  const raviImage = '/images/me/ravikhokle.png';
 
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
@@ -48,7 +48,7 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#1a1a1a] text-white">
 
-      <div className="w-full flex flex-col items-center justify-center flex-1 py-8 sm:py-12 relative z-10 overflow-hidden">
+      <div className="w-full flex flex-col items-center justify-center flex-1 py-8 sm:py-10 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -60,15 +60,19 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-6 sm:mb-8 mt-16 sm:mt-20"
+            className="mb-6 mt-16"
           >
-            <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto rounded-full bg-gradient-to-br from-blue-300 to-blue-600 p-0.5">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto rounded-full relative">
+              {/* Simple 3D Effect - No Shadows */}
+              <div className="absolute inset-0 rounded-full "></div>
+              
               {/* Profile Image */}
-              <div className="w-full h-full rounded-full overflow-hidden">
-                <img 
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/30">
+                <Image
                   src={raviImage}
                   alt="Ravi Khokle" 
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
