@@ -1,9 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, X } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const Projects = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const projects = [
     {
       id: 1,
@@ -84,40 +88,24 @@ const Projects = () => {
               whileHover={{ y: -10 }}
               className="bg-[#242424] rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-700 hover:border-gray-600"
             >
-              {/* Project Image */}
-              <div className="relative h-64 overflow-hidden">
-                {/* Project Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40"></div>
-                </div>
-                
-                {/* Project Type Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
-                    {project.featured ? 'Featured' : 'Project'}
-                  </span>
-                </div>
+              {/* Project Title */}
+              <div className="p-6 pb-0">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {project.title}
+                </h3>
+              </div>
 
-                {/* Project Title Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <h3 className="text-3xl font-bold text-white mb-2">
-                    POWER OF {project.title.includes('HTML') ? 'HTML' : 'CSS'}
-                  </h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-300 uppercase tracking-wide">
-                      CLICK HERE TO VISIT
-                    </span>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                    >
-                      <ExternalLink size={18} />
-                    </motion.button>
-                  </div>
-                </div>
+              {/* Project Image */}
+              <div 
+                className="relative h-64 mx-6 mb-6 overflow-hidden bg-gray-800 rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setSelectedImage(project.image)}
+              >
+                <Image 
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain"
+                />
               </div>
 
               {/* Project Content */}
@@ -190,6 +178,37 @@ const Projects = () => {
             View All Projects on GitHub
           </motion.a>
         </motion.div>
+
+        {/* Fullscreen Image Modal */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div
+              className="relative max-w-6xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+              >
+                <X size={24} />
+              </button>
+              
+              {/* Fullscreen Image */}
+              <div className="relative w-full h-[80vh]">
+                <Image
+                  src={selectedImage}
+                  alt="Project Screenshot"
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

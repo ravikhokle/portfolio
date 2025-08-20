@@ -13,7 +13,7 @@ const Services = () => {
     },
     {
       icon: <Palette size={40} />,
-      title: "UI/UX Design",
+      title: "WordPress Design",
       description: "User-centered design approach creating intuitive interfaces that convert visitors into customers. Mobile-first, accessible design principles.",
       features: ["User Research", "Wireframing", "Prototyping", "Design Systems"]
     },
