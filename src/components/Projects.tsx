@@ -11,29 +11,21 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "HTML TUTORIAL",
-      description: "A comprehensive HTML tutorial platform featuring interactive examples, best practices, and modern web development techniques. Built with responsive design and optimized for learning.",
-      problem: "Beginners struggled to find quality HTML resources with hands-on examples.",
-      solution: "Created an interactive platform with step-by-step tutorials and live code examples.",
-      tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-      results: "Helped 10,000+ developers learn HTML fundamentals.",
-      image: "/Images/projects/internshipYatra.png",
-      liveUrl: "https://html-tutorial-demo.com",
-      githubUrl: "https://github.com/ravikhokle/html-tutorial",
-      featured: true,
+      title: "Ai-Powered Resume Builder",
+      description: "Build your resume with a pre-built template and download, use AI to generate a summary, or get help while building your resume.",
+      tech: ["React", "Node", "Express", "MongoDB", "Gemini API", "Cloudinary"],
+      image: "/Images/projects/resumeBuilder.png",
+      liveUrl: "https://resumebuilder.ninja/",
+      githubUrl: "https://github.com/ravikhokle/Ai-Powered-Resume-Builder",
     },
     {
       id: 2,
-      title: "CSS TUTORIAL",
-      description: "Advanced CSS tutorial covering modern layouts, animations, and responsive design patterns. Features live examples and interactive code playground for better learning experience.",
-      problem: "Developers needed advanced CSS techniques and modern layout methods.",
-      solution: "Built a comprehensive guide with interactive examples and real-world projects.",
-      tech: ["CSS3", "Sass", "Flexbox", "Grid", "JavaScript"],
-      results: "Increased CSS proficiency for 5,000+ developers worldwide.",
-      image: "/Images/projects/resumeBuilder.png",
-      liveUrl: "https://css-tutorial-demo.com",
-      githubUrl: "https://github.com/ravikhokle/css-tutorial",
-      featured: true,
+      title: "InternshipYatra",
+      description: "A platform where HR can publish internships, check applicants, and download their resumes, and Users can apply for internships with their resume.",
+      tech: ["React", "Express", "Node", "MongoDB", "TailwindCSS", "Axios"],
+      image: "/Images/projects/internshipYatra.png",
+      liveUrl: "https://internshipyatra.ravikhokle.site",
+      githubUrl: "https://github.com/ravikhokle/InternshipYatra",
     }
   ];
 
@@ -69,8 +61,8 @@ const Projects = () => {
             <span className="text-[#3b82f6]">PROJECTS</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills in full-stack development,
-            UI/UX design, and problem-solving approach.
+            Look at my projects that show my skills in full-stack web development
+
           </p>
         </motion.div>
 
@@ -117,7 +109,7 @@ const Projects = () => {
                 {/* Tech Stack */}
                 <div className="mb-6">
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.slice(0, 4).map((tech) => (
+                    {project.tech.map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm font-medium"

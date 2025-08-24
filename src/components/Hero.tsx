@@ -126,11 +126,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
           >
-            I create exceptional digital experiences through innovative web development,
-            combining technical expertise with creative design to bring your ideas to life.
-            Passionate about building scalable solutions that make a difference.
+            I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website. I can build full-stack websites and make them live.
           </motion.p>
 
           <motion.div
@@ -149,26 +147,7 @@ const Hero = () => {
               <ArrowRight size={20} />
             </motion.button>
 
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="/resume.pdf"
-              download
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-semibold rounded-full transition-colors duration-200 text-center"
-            >
-              Download CV
-            </motion.a>
-
             <div className="flex space-x-4">
-              <motion.a
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                href="https://github.com/ravikhokle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 text-gray-300 hover:text-white transition-colors"
-              >
-                <Github size={24} />
-              </motion.a>
               <motion.a
                 whileHover={{ scale: 1.2, rotate: -5 }}
                 href="https://linkedin.com/in/ravikhokle"
@@ -177,6 +156,15 @@ const Hero = () => {
                 className="p-3 text-gray-300 hover:text-white transition-colors"
               >
                 <Linkedin size={24} />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                href="https://github.com/ravikhokle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-300 hover:text-white transition-colors"
+              >
+                <Github size={24} />
               </motion.a>
             </div>
           </motion.div>
