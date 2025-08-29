@@ -139,25 +139,6 @@ const Experience = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center px-8 py-4 bg-[#3b82f6] hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Download Full Resume
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );
