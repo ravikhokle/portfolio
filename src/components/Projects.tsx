@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -126,26 +126,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* View More Projects Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com/ravikhokle"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <Github className="mr-2" size={20} />
-            View All Projects on GitHub
-          </motion.a>
-        </motion.div>
+  {/* View More Projects Button hidden */}
 
         {/* Fullscreen Image Modal */}
         {selectedImage && (
