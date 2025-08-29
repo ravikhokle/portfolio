@@ -13,8 +13,9 @@ export const metadata: Metadata = {
 
 type SearchParams = { plan?: string };
 
-export default function CheckoutPage({ searchParams }: { searchParams?: SearchParams }) {
-  const planId = searchParams?.plan ?? '';
+export default async function CheckoutPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const params = await searchParams;
+  const planId = params?.plan ?? '';
   const plan = getPlanById(planId);
   const planName = plan?.name ?? 'Selected Plan';
   const priceNumber = plan?.price ?? 0;
