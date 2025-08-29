@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -61,8 +61,8 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       label: "Email",
-      value: "ravikhokle1@gmail.com",
-      href: "mailto:ravikhokle1@gmail.com"
+  value: "contact@ravikhokle.site",
+  href: "mailto:contact@ravikhokle.site"
     },
     {
       icon: <Phone size={24} />,
@@ -92,10 +92,10 @@ const Contact = () => {
       color: "hover:text-blue-600"
     },
     {
-      icon: <Twitter size={24} />,
-      label: "Twitter",
-      href: "https://twitter.com/ravikhokle",
-      color: "hover:text-blue-400"
+      icon: <Instagram size={24} />,
+      label: "Instagram",
+      href: "https://www.instagram.com/ravi__khokle/",
+      color: "hover:text-pink-500"
     }
   ];
 

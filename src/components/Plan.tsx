@@ -44,17 +44,14 @@ const Plan = () => {
 							<li>✔️ Fast, mobile-friendly, and secure</li>
 							<li>✔️ 1 month free support</li>
 						</ul>
-						<motion.button
+						<motion.a
 							whileHover={{ scale: 1.03 }}
 							whileTap={{ scale: 0.97 }}
-							onClick={() => {
-								const element = document.querySelector('#contact');
-								if (element) element.scrollIntoView({ behavior: 'smooth' });
-							}}
-							className="mt-auto w-full px-8 py-4 bg-[#3b82f6] hover:bg-blue-700 text-white rounded-lg font-bold text-lg transition-colors shadow-lg"
+							href={`/checkout?plan=wordpress`}
+							className="mt-auto w-full inline-flex items-center justify-center px-8 py-4 bg-[#3b82f6] hover:bg-blue-700 text-white rounded-lg font-bold text-lg transition-colors shadow-lg"
 						>
 							Buy Now
-						</motion.button>
+						</motion.a>
 					</motion.div>
 
 					{/* MERN/Next.js Plan */}
@@ -80,17 +77,14 @@ const Plan = () => {
 							<li>✔️ Fast, mobile-friendly, and secure</li>
 							<li>✔️ 1 month free support</li>
 						</ul>
-						<motion.button
+						<motion.a
 							whileHover={{ scale: 1.03 }}
 							whileTap={{ scale: 0.97 }}
-							onClick={() => {
-								const element = document.querySelector('#contact');
-								if (element) element.scrollIntoView({ behavior: 'smooth' });
-							}}
-							className="mt-auto w-full px-8 py-4 bg-[#ff6b35] hover:bg-orange-600 text-white rounded-lg font-bold text-lg transition-colors shadow-lg"
+							href={`/checkout?plan=nextjs-mernn`}
+							className="mt-auto w-full inline-flex items-center justify-center px-8 py-4 bg-[#ff6b35] hover:bg-orange-600 text-white rounded-lg font-bold text-lg transition-colors shadow-lg"
 						>
 							Buy Now
-						</motion.button>
+						</motion.a>
 					</motion.div>
 				</div>
 				<div className="mt-8 text-gray-400 text-sm">

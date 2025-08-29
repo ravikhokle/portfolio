@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getPlanById } from '@/lib/plans';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, budget } = body;
+  const { name, email, subject, message, budget, planId } = body;
 
     // Basic validation
     if (!name || !email || !subject || !message) {
@@ -25,6 +26,12 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Resolve plan details server-side if provided
+    const plan = planId ? getPlanById(String(planId)) : undefined;
+    const budgetDisplay = plan?.price
+      ? new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(plan.price)
+      : budget;
+
     // Email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -37,7 +44,8 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Subject:</strong> ${subject}</p>
-            ${budget ? `<p><strong>Budget:</strong> ${budget}</p>` : ''}
+            ${budgetDisplay ? `<p><strong>Budget:</strong> ${budgetDisplay}</p>` : ''}
+            ${plan ? `<p><strong>Plan:</strong> ${plan.name} (${budgetDisplay})</p>` : ''}
           </div>
           <div style="background: #ffffff; padding: 20px; border-left: 4px solid #3b82f6;">
             <h3>Message:</h3>
@@ -66,7 +74,8 @@ export async function POST(request: NextRequest) {
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Your Message Summary:</h3>
             <p><strong>Subject:</strong> ${subject}</p>
-            ${budget ? `<p><strong>Budget:</strong> ${budget}</p>` : ''}
+            ${budgetDisplay ? `<p><strong>Budget:</strong> ${budgetDisplay}</p>` : ''}
+            ${plan ? `<p><strong>Plan:</strong> ${plan.name}</p>` : ''}
             <p><strong>Message:</strong> ${message}</p>
           </div>
           

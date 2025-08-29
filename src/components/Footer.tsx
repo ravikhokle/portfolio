@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const SITE_URL = 'https://ravikhokle.site';
@@ -16,7 +16,7 @@ const Footer = () => {
 
   const services = [
     'Full Stack Development',
-    'UI/UX Design',
+    'WordPress Design',
     'Mobile Development',
     'E-Commerce Solutions',
     'Performance Optimization',
@@ -34,9 +34,9 @@ const Footer = () => {
       label: "LinkedIn"
     },
     {
-      icon: <Twitter size={20} />,
-      href: "https://twitter.com/ravikhokle",
-      label: "Twitter"
+      icon: <Instagram size={20} />,
+      href: "https://www.instagram.com/ravi__khokle/",
+      label: "Instagram"
     },
     {
       icon: <Mail size={20} />,
