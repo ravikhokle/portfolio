@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface CheckoutFormProps {
   planName: string;
@@ -40,6 +41,7 @@ export default function CheckoutForm({ planName, price, planId }: CheckoutFormPr
       setEmail("");
       setNotes("");
     } catch (err) {
+      console.error('Checkout submit failed', err);
       setStatus({ ok: false, msg: 'Failed to submit. Please try again.' });
     } finally {
       setLoading(false);
@@ -90,12 +92,12 @@ export default function CheckoutForm({ planName, price, planId }: CheckoutFormPr
         >
           {loading ? 'Processing…' : 'Proceed to Checkout'}
         </button>
-        <a
+        <Link
           href="/#plan"
           className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#262626] hover:bg-[#333] text-white font-semibold border border-gray-700"
         >
           Back to Plans
-        </a>
+        </Link>
       </div>
       {status && (
         <div className={`mt-4 text-sm ${status.ok ? 'text-green-400' : 'text-red-400'}`}>{status.msg}</div>
