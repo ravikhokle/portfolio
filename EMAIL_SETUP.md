@@ -58,7 +58,4 @@ EMAIL_PASS=your-password
 - Check your EMAIL_HOST and EMAIL_PORT settings
 - Try using port 465 with secure: true for Gmail
 
-**Emails not arriving**
-- Check spam folder
-- Verify EMAIL_USER is correct
-- Test with a simple email client first
+
