@@ -6,32 +6,32 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Lead Software Engineer at Google",
-      company: "Google",
-      period: "Nov 2019 - Present",
-      description: "As a Senior Software Engineer at Google, I played a pivotal role in developing innovative solutions for Google's core search algorithms. Collaborating with a dynamic team of engineers, I contributed to the enhancement of search accuracy and efficiency, optimizing user experiences for millions of users worldwide.",
-      logo: "🔍", // Using emoji as placeholder
+      title: "Full Stack Developer",
+      company: "Lumonix Labs AI",
+      period: "Jul 2025 – Present",
+      description:
+        "Working on AI-powered web applications with modern stacks (Next.js, Node.js) and integrating ML-driven features to deliver business value.",
+      logo: "🧠", // AI-themed emoji placeholder
       achievements: [
-        "Led development of core search algorithm improvements",
-        "Collaborated with cross-functional teams",
-        "Optimized performance for millions of users",
-        "Mentored junior developers"
-      ]
+        "Built and shipped features in a Next.js/TypeScript codebase",
+        "Implemented APIs and optimized performance for core user flows",
+        "Collaborated with design and product to deliver on rapid timelines",
+      ],
     },
     {
       id: 2,
-      title: "Junior Software Engineer at Apple",
-      company: "Apple",
-      period: "Jan 2016 - Dec 2017",
-      description: "During my tenure at Apple, I held the role of Software Architect, where I played a key role in shaping the architecture of mission-critical software projects. Responsible for designing scalable and efficient systems, I provided technical leadership to a cross-functional team.",
-      logo: "🍎", // Using emoji as placeholder
+      title: "Full Stack Developer",
+      company: "TOS – Totally Optimised Solutions",
+      period: "Jan 2025 – Jun 2025",
+      description:
+        "Contributed across frontend and backend to deliver client projects, improve UI/UX, and harden deployments.",
+      logo: "🚀", // Placeholder
       achievements: [
-        "Architected mission-critical software systems",
-        "Designed scalable and efficient solutions",
-        "Provided technical leadership",
-        "Delivered high-quality software products"
-      ]
-    }
+        "Developed responsive UIs with React/Tailwind",
+        "Created REST endpoints and integrated databases",
+        "Improved Lighthouse performance scores and SEO basics",
+      ],
+    },
   ];
 
   const containerVariants = {

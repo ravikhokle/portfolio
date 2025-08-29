@@ -127,20 +127,7 @@ const Services = () => {
                 </ul>
               </div>
 
-              {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  const element = document.querySelector('#contact');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="w-full px-6 py-3 bg-[#3b82f6] hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
-              >
-                Get Started
-              </motion.button>
+              {/* CTA Button removed as requested */}
             </motion.div>
           ))}
         </motion.div>

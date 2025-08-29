@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram, User } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,6 +58,12 @@ const Contact = () => {
   };
 
   const contactInfo = [
+    {
+      icon: <User size={24} />,
+      label: "Name",
+      value: "Ravi Maroti Khokle",
+      href: null
+    },
     {
       icon: <Mail size={24} />,
       label: "Email",

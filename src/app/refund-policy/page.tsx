@@ -41,7 +41,7 @@ export default function RefundPolicyPage() {
           <div>
             <h2 className="text-2xl font-semibold text-white mb-3">Processing</h2>
             <p>
-              Approved refunds are processed to the original payment method within 7–10 business days.
+              Approved refunds are credit to the original payment method within 7–10 business days.
             </p>
           </div>
 
