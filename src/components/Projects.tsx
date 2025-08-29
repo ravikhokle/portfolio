@@ -120,31 +120,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Links */}
-                <div className="flex space-x-4">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-[#3b82f6] hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 border border-gray-600 text-gray-300 hover:bg-gray-700 rounded-lg font-medium transition-colors"
-                  >
-                    <Github size={16} className="mr-2" />
-                    Source Code
-                  </motion.a>
-                </div>
+                {/* Links temporarily hidden */}
               </div>
             </motion.div>
           ))}
