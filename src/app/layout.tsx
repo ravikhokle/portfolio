@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Ravi Khokle",
   },
   description:
-    "Professional portfolio of Ravi Khokle - Full Stack Developer, MERN Stack Developer",
+    "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
   keywords:
     "Ravi Khokle, Full Stack Developer, React Developer, Next.js Developer, MERN Stack Developer",
   authors: [{ name: "Ravi Khokle", url: "https://ravikhokle.site" }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Ravi Khokle - Full Stack Developer",
-    description: "Professional portfolio showcasing modern web development projects",
+    description: "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
     type: "website",
     url: "https://ravikhokle.site/",
     siteName: "Ravi Khokle",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ravi Khokle - Full Stack Developer",
     description:
-      "Professional portfolio showcasing modern web development projects",
+      "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
     creator: "@ravikhokle",
     images: ["/Images/me/ravikhokle.png"],
   },
