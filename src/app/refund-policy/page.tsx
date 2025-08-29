@@ -1,6 +1,8 @@
 export const metadata = {
   title: 'Refund Policy | Ravi Khokle',
   description: 'Refund Policy for services purchased from Ravi Khokle.',
+  alternates: { canonical: '/refund-policy' },
+  openGraph: { url: '/refund-policy', title: 'Refund Policy | Ravi Khokle' },
 };
 
 import Header from '@/components/Header';

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
@@ -21,3 +22,8 @@ export default function Home() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: { url: '/', title: 'Ravi Khokle - Full Stack Developer' },
+};

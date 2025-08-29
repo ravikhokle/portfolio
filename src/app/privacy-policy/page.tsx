@@ -1,6 +1,8 @@
 export const metadata = {
   title: 'Privacy Policy | Ravi Khokle',
   description: 'Privacy Policy for the portfolio and services website of Ravi Khokle.',
+  alternates: { canonical: '/privacy-policy' },
+  openGraph: { url: '/privacy-policy', title: 'Privacy Policy | Ravi Khokle' },
 };
 
 import Header from '@/components/Header';

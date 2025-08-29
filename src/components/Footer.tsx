@@ -5,12 +5,13 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const Footer = () => {
+  const SITE_URL = 'https://ravikhokle.site';
   const quickLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Projects', href: '/#projects' },
-    { name: 'Experience', href: '/#experience' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Home', href: `${SITE_URL}/#home` },
+    { name: 'Projects', href: `${SITE_URL}/#projects` },
+    { name: 'Experience', href: `${SITE_URL}/#experience` },
+    { name: 'Services', href: `${SITE_URL}/#services` },
+    { name: 'Contact', href: `${SITE_URL}/#contact` },
   ];
 
   const services = [
@@ -64,7 +65,7 @@ const Footer = () => {
               className="font-bold text-2xl text-white mb-4 inline-block"
               style={{ transformOrigin: 'center' }}
             >
-              Ravi Khokle
+              <Link href={`${SITE_URL}/`} className="hover:text-[#3b82f6] transition-colors">Ravi Khokle</Link>
             </motion.div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Full Stack Developer & UI/UX Designer creating digital experiences
@@ -105,12 +106,12 @@ const Footer = () => {
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <motion.div whileHover={{ x: 5 }}>
-                    <Link
+                    <a
                       href={link.href}
                       className="text-gray-400 hover:text-white transition-colors duration-300"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </motion.div>
                 </li>
               ))}
@@ -127,17 +128,17 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-6">Legal</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href={`${SITE_URL}/privacy-policy`} className="text-gray-400 hover:text-white transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href={`${SITE_URL}/terms-and-conditions`} className="text-gray-400 hover:text-white transition-colors duration-300">
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="/refund-policy" className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href={`${SITE_URL}/refund-policy`} className="text-gray-400 hover:text-white transition-colors duration-300">
                   Refund Policy
                 </a>
               </li>

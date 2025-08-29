@@ -1,6 +1,8 @@
 export const metadata = {
   title: 'Terms & Conditions | Ravi Khokle',
   description: 'Terms and Conditions for using the website and services of Ravi Khokle.',
+  alternates: { canonical: '/terms-and-conditions' },
+  openGraph: { url: '/terms-and-conditions', title: 'Terms & Conditions | Ravi Khokle' },
 };
 
 import Header from '@/components/Header';

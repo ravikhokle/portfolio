@@ -21,6 +21,7 @@ const Header = () => {
   }, []);
 
   const pathname = usePathname();
+  const SITE_URL = 'https://ravikhokle.site';
 
   const navItems = [
     { name: 'Home', id: 'home' },
@@ -31,16 +32,17 @@ const Header = () => {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    // If we are on the homepage, smooth-scroll instead of navigating
+    // Always prevent default to keep SPA behavior and support local dev
+    e.preventDefault();
+    const section = id === 'home' ? 'home' : id;
     if (pathname === '/' || pathname === '') {
-      e.preventDefault();
-      const element = document.querySelector(`#${id}`);
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+      const el = document.querySelector(`#${section}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Let Link navigate to the home hash route
-      setIsMobileMenuOpen(false);
+      // Navigate within current origin to preserve environment (dev/prod)
+      window.location.href = `/#${section}`;
     }
+    setIsMobileMenuOpen(false);
   };
 
   if (!mounted) return null;
@@ -58,18 +60,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="font-bold text-xl sm:text-2xl text-white"
-          >
-            Ravi Khokle
+          <motion.div whileHover={{ scale: 1.05 }} className="font-bold text-xl sm:text-2xl text-white">
+            <Link href="/" aria-label="Ravi Khokle - Home">Ravi Khokle</Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navItems.map((item) => {
-              const href = item.id === 'home' ? '/' : `/#${item.id}`;
-              const samePageHref = item.id === 'home' ? '#home' : `#${item.id}`;
+              const href = item.id === 'home' ? `${SITE_URL}/` : `${SITE_URL}/#${item.id}`;
               return (
                 <motion.div key={item.name} whileHover={{ y: -2 }}>
                   <Link
@@ -107,7 +105,7 @@ const Header = () => {
         >
           <div className="py-4 space-y-1">
             {navItems.map((item) => {
-              const href = item.id === 'home' ? '/' : `/#${item.id}`;
+              const href = item.id === 'home' ? `${SITE_URL}/` : `${SITE_URL}/#${item.id}`;
               return (
                 <Link
                   key={item.name}
