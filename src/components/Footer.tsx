@@ -1,15 +1,16 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Experience', href: '/#experience' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   const services = [
@@ -38,23 +39,18 @@ const Footer = () => {
     },
     {
       icon: <Mail size={20} />,
-      href: "mailto:ravi@ravikhokle.dev",
+      href: "mailto:contact@ravikhokle.site",
       label: "Email"
     }
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Using Link for cross-page anchors; smooth scroll handled on home by Header.
 
   return (
     <footer className="bg-[#1a1a1a] text-white border-t border-gray-800">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -108,24 +104,52 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <motion.button
-                    whileHover={{ x: 5 }}
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    {link.name}
-                  </motion.button>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Services */}
+          {/* Legal (replacing previous Services column) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h4 className="text-xl font-semibold mb-6">Legal</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a href="/refund-policy" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Refund Policy
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Services (added back in the same row) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h4 className="text-xl font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
