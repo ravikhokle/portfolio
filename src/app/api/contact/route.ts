@@ -15,16 +15,40 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Ensure email envs are present
+    const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
+    const port = parseInt(process.env.EMAIL_PORT || '587', 10);
+    const secure = port === 465; // SSL for 465, STARTTLS for 587/25
+    const userEmail = process.env.EMAIL_USER;
+    const userPass = process.env.EMAIL_PASS;
+    if (!userEmail || !userPass) {
+      return NextResponse.json(
+        { error: 'Email is not configured. Please set EMAIL_USER and EMAIL_PASS in the environment.' },
+        { status: 500 }
+      );
+    }
+
     // Create transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.EMAIL_PORT || '587'),
-      secure: false, // true for 465, false for other ports
+      host,
+      port,
+      secure,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: userEmail,
+        pass: userPass,
       },
     });
+
+    // Verify connection early for clearer errors
+    try {
+      await transporter.verify();
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      return NextResponse.json(
+        { error: `Email server connection failed: ${msg}` },
+        { status: 500 }
+      );
+    }
 
     // Resolve plan details server-side if provided
     const plan = planId ? getPlanById(String(planId)) : undefined;
@@ -34,9 +58,10 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_FROM || userEmail,
       to: process.env.EMAIL_USER, // Send to yourself
       subject: `Portfolio Contact: ${subject}`,
+      replyTo: email,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3b82f6;">New Contact Form Submission</h2>
@@ -62,7 +87,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to the user
     const confirmationMailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_FROM || userEmail,
       to: email,
       subject: 'Thank you for contacting Ravi Khokle',
       html: `
@@ -89,19 +114,29 @@ export async function POST(request: NextRequest) {
     };
 
     // Send both emails
-    await Promise.all([
+    const [toSelf, toUser] = await Promise.allSettled([
       transporter.sendMail(mailOptions),
       transporter.sendMail(confirmationMailOptions)
     ]);
+
+    if (toSelf.status === 'rejected') {
+      const reason = toSelf.reason instanceof Error ? toSelf.reason.message : String(toSelf.reason);
+      return NextResponse.json({ error: `Failed to send mail to owner: ${reason}` }, { status: 500 });
+    }
+    if (toUser.status === 'rejected') {
+      // Still succeed overall, but inform client
+      console.warn('Failed to send confirmation email to user:', toUser.reason);
+    }
 
     return NextResponse.json(
       { message: 'Message sent successfully!' },
       { status: 200 }
     );
   } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error);
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again.' },
+      { error: `Failed to send email: ${msg}` },
       { status: 500 }
     );
   }
