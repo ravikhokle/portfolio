@@ -63,6 +63,13 @@ Copy the example file and fill your secrets:
 	- `PHONEPE_CHECKOUT_BASE_URL` (sandbox default included in example)
 	- `PHONEPE_AUTH_BASE_URL` (optional; sandbox default included)
 3. Restart the dev server to apply changes.
+
+#### Switch to Production
+- Update `.env.local` to use your LIVE credentials.
+- Set:
+	- `PHONEPE_CHECKOUT_BASE_URL=https://api.phonepe.com/apis/pg`
+	- `PHONEPE_AUTH_BASE_URL=https://api.phonepe.com/apis/identity-manager`
+- Keep the rest of the code unchanged. Our API routes auto-use the correct token path and O-Bearer header.
 ## 📱 Built By
 
 Built with ❤️ by [Ravi Khokle](https://github.com/ravikhokle)
