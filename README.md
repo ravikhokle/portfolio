@@ -27,23 +27,9 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Fra
 1. Clone the repository:
 ```bash
 git clone https://github.com/ravikhokle/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
 
 3. Run the development server:
 ```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🎨 Customization
-
 ### Personal Information
 Update your personal details in the following components:
 - `src/components/Hero.tsx` - Main hero section
@@ -64,6 +50,19 @@ Modify your services in `src/components/Services.tsx`
 2. Connect your repository to Vercel
 3. Deploy automatically
 
+
+### Environment variables
+
+Copy the example file and fill your secrets:
+
+1. Duplicate `.env.example` as `.env.local` in the project root.
+2. Provide your PhonePe credentials (Standard Checkout OAuth):
+	- `PHONEPE_CLIENT_ID`
+	- `PHONEPE_CLIENT_SECRET`
+	- `PHONEPE_CLIENT_VERSION` (optional, default `1`)
+	- `PHONEPE_CHECKOUT_BASE_URL` (sandbox default included in example)
+	- `PHONEPE_AUTH_BASE_URL` (optional; sandbox default included)
+3. Restart the dev server to apply changes.
 ## 📱 Built By
 
 Built with ❤️ by [Ravi Khokle](https://github.com/ravikhokle)
