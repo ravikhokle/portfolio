@@ -63,7 +63,24 @@ export async function POST(req: NextRequest) {
 
   const token = await getAuthToken();
 
-    const payload: any = {
+    type PaymentPayload = {
+      merchantOrderId: string;
+      amount: number;
+      metaInfo?: {
+        udf1?: string;
+        udf2?: string;
+        udf3?: string;
+        udf4?: string;
+        udf5?: string;
+      };
+      paymentFlow: {
+        type: 'PG_CHECKOUT';
+        merchantUrls: { redirectUrl: string };
+      };
+      expireAfter?: number;
+    };
+
+    const payload: PaymentPayload = {
       merchantOrderId,
       amount: amountPaise,
       // optional: expireAfter: 600,
@@ -105,8 +122,9 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ redirectUrl, phonepeRedirectUrl: redirect, merchantTransactionId: merchantOrderId });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
     console.error('PhonePe initiate error:', err);
-    return NextResponse.json({ error: err?.message || 'Internal error' }, { status: 500 });
+    return NextResponse.json({ error: message || 'Internal error' }, { status: 500 });
   }
 }

@@ -60,8 +60,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: data?.message || data?.error || 'Status check failed', details: data }, { status: 500 });
     }
     return NextResponse.json(data);
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
     console.error('PhonePe status error:', err);
-    return NextResponse.json({ error: err?.message || 'Internal error' }, { status: 500 });
+    return NextResponse.json({ error: message || 'Internal error' }, { status: 500 });
   }
 }
