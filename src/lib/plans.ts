@@ -13,7 +13,7 @@ export const PLANS: Plan[] = [
   {
     id: 'nextjs-mernn',
     name: 'Custom Business Website (Next.js/MERN)',
-    price: 5,
+    price: 2,
   },
 ];
 
