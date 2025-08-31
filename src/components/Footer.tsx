@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const SITE_URL = 'https://ravikhokle.site';
@@ -24,24 +24,19 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <Github size={20} />,
+      icon: <Linkedin size={24} />,
+      href: "https://linkedin.com/in/ravikhokle",
+      label: "LinkedIn"
+    },
+        {
+      icon: <Github size={24} />,
       href: "https://github.com/ravikhokle",
       label: "GitHub"
     },
     {
-      icon: <Linkedin size={20} />,
-      href: "https://linkedin.com/in/ravikhokle",
-      label: "LinkedIn"
-    },
-    {
-      icon: <Instagram size={20} />,
+      icon: <Instagram size={24} />,
       href: "https://www.instagram.com/ravi__khokle/",
       label: "Instagram"
-    },
-    {
-      icon: <Mail size={20} />,
-      href: "mailto:contact@ravikhokle.site",
-      label: "Email"
     }
   ];
 
@@ -73,7 +68,7 @@ const Footer = () => {
             </p>
             
             {/* Social Links */}
-            <div className="flex space-x-4">
+    <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
@@ -81,11 +76,11 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+      whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="w-10 h-10 bg-[#242424] hover:bg-[#3b82f6] border border-gray-700 hover:border-[#3b82f6] rounded-full flex items-center justify-center transition-colors duration-300"
+      whileHover={{ scale: 1.1 }}
+      className="w-12 h-12 bg-[#242424] border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-[#3b82f6] transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}

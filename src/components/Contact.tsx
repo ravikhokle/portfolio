@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram, User } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,12 +59,6 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <User size={24} />,
-      label: "Name",
-      value: "Ravi Maroti Khokle",
-      href: null
-    },
-    {
       icon: <Mail size={24} />,
       label: "Email",
   value: "contact@ravikhokle.site",
@@ -85,18 +79,20 @@ const Contact = () => {
   ];
 
   const socialLinks = [
+       {
+      icon: <Linkedin size={24} />,
+      label: "LinkedIn", 
+      href: "https://linkedin.com/in/ravikhokle",
+      color: "hover:text-blue-600"
+    },
+    
     {
       icon: <Github size={24} />,
       label: "GitHub",
       href: "https://github.com/ravikhokle",
       color: "hover:text-gray-900 dark:hover:text-white"
     },
-    {
-      icon: <Linkedin size={24} />,
-      label: "LinkedIn", 
-      href: "https://linkedin.com/in/ravikhokle",
-      color: "hover:text-blue-600"
-    },
+ 
     {
       icon: <Instagram size={24} />,
       label: "Instagram",
@@ -327,20 +323,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Quick Response Time */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="bg-gradient-to-r from-[#ff6b35] to-[#8b5cf6] rounded-xl p-6 text-white"
-            >
-              <h4 className="font-semibold mb-2">⚡ Quick Response</h4>
-              <p className="opacity-90">
-                I typically respond to messages within 24 hours. For urgent projects,
-                feel free to call me directly!
-              </p>
-            </motion.div>
+            {/* Removed Quick Response Time card */}
           </motion.div>
         </div>
       </div>
