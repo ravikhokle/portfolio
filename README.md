@@ -62,6 +62,9 @@ Copy the example file and fill your secrets:
 	- `PHONEPE_CLIENT_VERSION` (optional, default `1`)
 	- `PHONEPE_CHECKOUT_BASE_URL` (sandbox default included in example)
 	- `PHONEPE_AUTH_BASE_URL` (optional; sandbox default included)
+	 - Webhook auth (for payment notifications)
+		 - `PHONEPE_WEBHOOK_USER`
+		 - `PHONEPE_WEBHOOK_PASS`
 3. Restart the dev server to apply changes.
 
 #### Switch to Production
@@ -70,6 +73,13 @@ Copy the example file and fill your secrets:
 	- `PHONEPE_CHECKOUT_BASE_URL=https://api.phonepe.com/apis/pg`
 	- `PHONEPE_AUTH_BASE_URL=https://api.phonepe.com/apis/identity-manager`
 - Keep the rest of the code unchanged. Our API routes auto-use the correct token path and O-Bearer header.
+
+### Webhook Notifications
+1. Set `PHONEPE_WEBHOOK_USER` and `PHONEPE_WEBHOOK_PASS` in `.env.local` (and production env).
+2. In PhonePe Dashboard → Webhook settings, configure:
+	- URL: `https://<your-domain>/api/phonepe/callback`
+	- Username/Password: same as the env values above.
+3. Emails are sent via the same SMTP credentials as the contact form (`EMAIL_*`). If not set, emails are skipped but webhook still acks.
 ## 📱 Built By
 
 Built with ❤️ by [Ravi Khokle](https://github.com/ravikhokle)
