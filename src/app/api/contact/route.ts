@@ -43,8 +43,12 @@ export async function POST(request: NextRequest) {
       await transporter.verify();
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
+      console.error('SMTP Connection Error:', msg);
       return NextResponse.json(
-        { error: `Email server connection failed: ${msg}` },
+        { 
+          error: `Email configuration error. Please contact me directly at ${userEmail}`,
+          details: 'SMTP authentication failed. The Gmail App Password may be invalid.'
+        },
         { status: 500 }
       );
     }
