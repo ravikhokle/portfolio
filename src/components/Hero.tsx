@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Instagram } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 import Image from 'next/image';
 
@@ -165,6 +165,15 @@ const Hero = () => {
                 className="p-3 text-gray-300 hover:text-white transition-colors"
               >
                 <Github size={24} />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                href="https://instagram.com/ravi__khokle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-300 hover:text-white transition-colors"
+              >
+                <Instagram size={24} />
               </motion.a>
             </div>
           </motion.div>

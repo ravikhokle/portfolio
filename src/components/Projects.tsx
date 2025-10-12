@@ -120,13 +120,46 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Links temporarily hidden */}
+                {/* Links */}
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors"
+                    >
+                      Live demo
+                    </a>
+                  )}
+
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-md text-sm font-medium transition-colors"
+                    >
+                      Source Code
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-  {/* View More Projects Button hidden */}
+        {/* More projects CTA */}
+        <div className="mt-10 text-center">
+          <a
+            href="https://github.com/ravikhokle"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-transparent border border-gray-600 hover:bg-gray-800 text-gray-200 rounded-md text-sm font-semibold transition-colors"
+          >
+            More projects on GitHub
+          </a>
+        </div>
 
         {/* Fullscreen Image Modal */}
         {selectedImage && (
