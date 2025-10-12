@@ -61,7 +61,14 @@ export async function POST(request: NextRequest) {
       replyTo: email,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #3b82f6;">New Contact Form Submission</h2>
+          <!-- Profile Header -->
+          <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #3b82f6;">
+            <img src="https://ravikhokle.site/Images/me/ravikhokle.png" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
+            <h3 style="margin: 0; color: #1f2937;">Ravi Khokle</h3>
+            <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">Full Stack Developer</p>
+          </div>
+          
+          <h2 style="color: #3b82f6; margin-top: 20px;">New Contact Form Submission</h2>
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -87,7 +94,14 @@ export async function POST(request: NextRequest) {
       subject: 'Thank you for contacting Ravi Khokle',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #3b82f6;">Thank You for Your Message!</h2>
+          <!-- Profile Header -->
+          <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #3b82f6;">
+            <img src="https://ravikhokle.site/Images/me/ravikhokle.png" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
+            <h3 style="margin: 0; color: #1f2937;">Ravi Khokle</h3>
+            <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">Full Stack Developer & UI/UX Designer</p>
+          </div>
+          
+          <h2 style="color: #3b82f6; margin-top: 20px;">Thank You for Your Message!</h2>
           <p>Hi ${name},</p>
           <p>Thank you for reaching out! I've received your message and will get back to you within 24 hours.</p>
           
