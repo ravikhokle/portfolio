@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
@@ -55,7 +56,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body className={`${plusJakartaSans.variable} ${plusJakartaSans.className} overflow-x-hidden`}>
+      <body className={`${plusJakartaSans.variable} ${plusJakartaSans.className} overflow-x-hidden relative`}>
+        <ParticlesBackground />
         {/* Organization & Website JSON-LD */}
         <Script
           id="ld-org"
@@ -74,7 +76,7 @@ export default function RootLayout({
             }),
           }}
         />
-        {children}
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
