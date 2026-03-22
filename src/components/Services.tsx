@@ -62,19 +62,19 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
+    <section id="services" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-[#3b82f6]">SERVICES</span> I Offer
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            <span className="text-violet-400">SERVICES</span> I Offer
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             I help businesses and individuals create powerful digital experiences
             that drive results and engage users effectively.
           </p>
@@ -85,19 +85,19 @@ const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-[#242424] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
+              className="bg-[#151519] rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#2a2a30] hover:border-violet-400/40"
             >
               {/* Icon */}
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-16 h-16 bg-gradient-to-br from-[#ff6b35] to-[#8b5cf6] text-white rounded-2xl flex items-center justify-center mb-6"
+                className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-500 text-white rounded-2xl flex items-center justify-center mb-6"
               >
                 {service.icon}
               </motion.div>
@@ -120,7 +120,7 @@ const Services = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-gray-400">
-                      <div className="w-2 h-2 bg-[#3b82f6] rounded-full mr-3"></div>
+                      <div className="w-2 h-2 bg-violet-400 rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
@@ -138,7 +138,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center mt-16 p-8 bg-gradient-to-r from-[#ff6b35] to-[#8b5cf6] rounded-2xl text-white"
+          className="text-center mt-16 p-8 bg-gradient-to-r from-violet-600 to-purple-600 rounded-3xl text-white"
         >
           <h3 className="text-3xl font-bold mb-4">
             Need Something Custom?
@@ -156,7 +156,7 @@ const Services = () => {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="px-8 py-4 bg-white text-[#ff6b35] font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
+            className="px-8 py-4 bg-white text-violet-600 font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
           >
             Start Your Project
           </motion.button>

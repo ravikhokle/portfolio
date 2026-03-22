@@ -34,7 +34,7 @@ export default function RefundPolicyPage() {
             <h2 className="text-2xl font-semibold text-white mb-3">How to Request</h2>
             <p>
               Email your request with your project reference and reason for refund to
-              {' '}<a className="text-[#3b82f6] underline" href="mailto:contact@ravikhokle.site">contact@ravikhokle.site</a>.
+              {' '}<a className="text-[#3b82f6] underline" href="mailto:ravikhokle1@gmail.com">ravikhokle1@gmail.com</a>.
             </p>
           </div>
 

@@ -35,8 +35,6 @@ const Header = () => {
   }, [isMobileMenuOpen, mounted]);
 
   const pathname = usePathname();
-  const SITE_URL = 'https://ravikhokle.site';
-
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'Projects', id: 'projects' },
@@ -88,27 +86,27 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#1a1a1a]/90 backdrop-blur-md shadow-lg'
+          ? 'bg-[#0b0b0d]/90 backdrop-blur-xl border-b border-[#2a2a30]'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-5">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} className="font-bold text-xl sm:text-2xl text-white">
-            <Link href="/" aria-label="Ravi Khokle - Home">Ravi Khokle</Link>
+          <motion.div whileHover={{ scale: 1.03 }} className="font-bold text-xl sm:text-2xl tracking-tight text-white">
+            <Link href="/" aria-label="Ravi Khokle - Home" className="hover:text-violet-400 transition-colors">Ravi Khokle</Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8">
+          <nav className="hidden md:flex items-center gap-2 rounded-full border border-[#2a2a30] bg-[#121216]/80 px-3 py-2">
             {navItems.map((item) => {
-              const href = item.id === 'home' ? `${SITE_URL}/` : `${SITE_URL}/#${item.id}`;
+              const href = item.id === 'home' ? '/#home' : `/#${item.id}`;
               return (
-                <motion.div key={item.name} whileHover={{ y: -2 }}>
+                <motion.div key={item.name} whileHover={{ y: -1 }}>
                   <Link
                     href={href}
                     onClick={(e) => handleNavClick(e, item.id)}
-                    className="text-gray-300 hover:text-white transition-colors font-medium text-sm lg:text-base"
+                    className="rounded-full px-3 py-1.5 text-sm font-medium text-gray-300 hover:bg-[#1b1b21] hover:text-violet-300 transition-colors"
                     aria-label={item.name}
                   >
                     {item.name}
@@ -123,7 +121,7 @@ const Header = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-full bg-[#242424] text-gray-300 hover:bg-gray-600 hover:text-white transition-colors"
+            className="md:hidden p-2.5 rounded-full bg-[#17171c] text-gray-300 hover:bg-[#22222a] hover:text-violet-300 transition-colors border border-[#2a2a30]"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </motion.button>
@@ -144,7 +142,7 @@ const Header = () => {
           className="md:hidden fixed top-[64px] left-0 right-0 z-[60] mx-2"
           style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
         >
-          <div className="overflow-hidden bg-[#242424] rounded-lg shadow-lg">
+          <div className="overflow-hidden bg-[#121216] rounded-2xl shadow-lg border border-[#2a2a30]">
             <div className="py-2">
               {navItems.map((item) => {
                 const href = item.id === 'home' ? '/#home' : `/#${item.id}`;
@@ -153,7 +151,7 @@ const Header = () => {
                     key={item.name}
                     href={href}
                     onClick={(e) => handleNavClick(e, item.id)}
-                    className="block w-full text-left px-6 py-3 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors text-base font-medium"
+                    className="block w-full text-left px-6 py-3 text-gray-300 hover:text-violet-300 hover:bg-[#1c1c23] transition-colors text-base font-medium"
                   >
                     {item.name}
                   </Link>

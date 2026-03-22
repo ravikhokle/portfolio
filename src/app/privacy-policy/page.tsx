@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-2xl font-semibold text-white mb-3">Contact</h2>
             <p>
-              For privacy-related questions, contact me at <a className="text-[#3b82f6] underline" href="mailto:contact@ravikhokle.site">contact@ravikhokle.site</a>.
+              For privacy-related questions, contact me at <a className="text-[#3b82f6] underline" href="mailto:ravikhokle1@gmail.com">ravikhokle1@gmail.com</a>.
             </p>
           </div>
 

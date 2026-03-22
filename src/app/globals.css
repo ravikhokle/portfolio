@@ -3,29 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary-orange: #ff6b35;
-  --primary-purple: #8b5cf6;
-  --primary-pink: #ec4899;
-  --primary-blue: #3b82f6;
-  --dark-bg: #1a1a1a;
-  --darker-bg: #141414;
-  --card-bg: #242424;
+  --background: #0b0b0d;
+  --foreground: #f6f6f7;
+  --primary-accent: #8b5cf6;
+  --primary-accent-soft: #a78bfa;
+  --dark-bg: #0b0b0d;
+  --darker-bg: #070709;
+  --card-bg: #151519;
 }
 
 .dark {
-  --background: #1a1a1a;
-  --foreground: #f3f4f6;
+  --background: #0b0b0d;
+  --foreground: #f6f6f7;
 }
 
 body {
   background: var(--dark-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 html {
@@ -39,16 +38,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #2d2d2d;
+  background: #101014;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #31245a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: #46327f;
 }
 
 /* Prevent horizontal overflow */
@@ -76,12 +75,12 @@ html {
 
 /* Text selection */
 ::selection {
-  background: #ff6b35;
+  background: #8b5cf6;
   color: white;
 }
 
 ::-moz-selection {
-  background: #ff6b35;
+  background: #8b5cf6;
   color: white;
 }
 

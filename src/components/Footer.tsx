@@ -2,16 +2,15 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
-  const SITE_URL = 'https://ravikhokle.site';
   const quickLinks = [
-    { name: 'Home', href: `${SITE_URL}/#home` },
-    { name: 'Projects', href: `${SITE_URL}/#projects` },
-    { name: 'Experience', href: `${SITE_URL}/#experience` },
-    { name: 'Services', href: `${SITE_URL}/#services` },
-    { name: 'Contact', href: `${SITE_URL}/#contact` },
+    { name: 'Home', href: '/#home' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Experience', href: '/#experience' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   const services = [
@@ -34,19 +33,19 @@ const Footer = () => {
       label: "GitHub"
     },
     {
-      icon: <Instagram size={24} />,
-      href: "https://www.instagram.com/ravi__khokle/",
-      label: "Instagram"
+          icon: <Mail size={24} />,
+          href: "mailto:ravikhokle1@gmail.com",
+          label: "Email"
     }
   ];
 
   // Using Link for cross-page anchors; smooth scroll handled on home by Header.
 
   return (
-    <footer className="bg-[#1a1a1a] text-white border-t border-gray-800">
+    <footer className="bg-[#0b0b0d] text-white border-t border-[#2a2a30]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-7 sm:gap-10">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +59,7 @@ const Footer = () => {
               className="font-bold text-2xl text-white mb-4 inline-block"
               style={{ transformOrigin: 'center' }}
             >
-              <Link href={`${SITE_URL}/`} className="hover:text-[#3b82f6] transition-colors">Ravi Khokle</Link>
+              <Link href="/" className="hover:text-violet-300 transition-colors">Ravi Khokle</Link>
             </motion.div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Full Stack Developer & UI/UX Designer creating digital experiences
@@ -80,7 +79,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
       whileHover={{ scale: 1.1 }}
-      className="w-12 h-12 bg-[#242424] border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-[#3b82f6] transition-colors"
+      className="w-12 h-12 bg-[#151519] border border-[#2a2a30] rounded-full flex items-center justify-center text-gray-400 hover:text-violet-300 hover:border-violet-400/60 transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -103,7 +102,7 @@ const Footer = () => {
                   <motion.div whileHover={{ x: 5 }}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-300"
+                      className="text-gray-400 hover:text-violet-300 transition-colors duration-300"
                     >
                       {link.name}
                     </a>
@@ -123,17 +122,17 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-6">Legal</h4>
             <ul className="space-y-3">
               <li>
-                <a href={`${SITE_URL}/privacy-policy`} className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href="/privacy-policy" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href={`${SITE_URL}/terms-and-conditions`} className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href="/terms-and-conditions" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href={`${SITE_URL}/refund-policy`} className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href="/refund-policy" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
                   Refund Policy
                 </a>
               </li>
@@ -151,7 +150,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-gray-400 hover:text-white transition-colors duration-300 cursor-default">
+                  <span className="text-gray-400 hover:text-violet-300 transition-colors duration-300 cursor-default">
                     {service}
                   </span>
                 </li>

@@ -53,7 +53,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
+    <section id="experience" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -61,10 +61,10 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-[#3b82f6]">EXPERIENCE</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            <span className="text-violet-400">EXPERIENCE</span>
           </h2>
         </motion.div>
 
@@ -74,7 +74,7 @@ const Experience = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-12"
+          className="space-y-12 lg:space-y-14"
         >
           {experiences.map((experience, index) => (
             <motion.div
@@ -84,32 +84,32 @@ const Experience = () => {
             >
               {/* Timeline Line */}
               {index !== experiences.length - 1 && (
-                <div className="absolute left-8 top-20 w-0.5 h-32 bg-gray-600"></div>
+                <div className="absolute left-8 top-20 w-0.5 h-32 bg-violet-500/35"></div>
               )}
               
               {/* Experience Card */}
               <div className="flex items-start space-x-6">
                 {/* Company Logo/Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-[#242424] rounded-full flex items-center justify-center text-2xl border-2 border-gray-600">
+                  <div className="w-16 h-16 bg-[#151519] rounded-full flex items-center justify-center text-2xl border-2 border-[#2d2d36]">
                     {experience.logo}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 bg-[#242424] rounded-lg p-8 border border-gray-700 hover:border-gray-600 transition-colors duration-300">
+                <div className="flex-1 bg-[#151519] rounded-2xl p-8 border border-[#2a2a30] hover:border-violet-400/40 transition-colors duration-300">
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-white mb-1">
                         {experience.title}
                       </h3>
-                      <p className="text-[#3b82f6] font-medium">
+                      <p className="text-violet-300 font-medium">
                         {experience.company}
                       </p>
                     </div>
                     <div className="mt-2 sm:mt-0">
-                      <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#222228] text-gray-300 rounded-full text-sm font-medium border border-[#2e2e36]">
                         {experience.period}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ const Experience = () => {
                     <ul className="space-y-2">
                       {experience.achievements.map((achievement, idx) => (
                         <li key={idx} className="flex items-start">
-                          <span className="text-[#3b82f6] mr-2 mt-1.5">•</span>
+                          <span className="text-violet-400 mr-2 mt-1.5">•</span>
                           <span className="text-gray-300 text-sm">{achievement}</span>
                         </li>
                       ))}

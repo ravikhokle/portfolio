@@ -48,19 +48,19 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-[#3b82f6]">PROJECTS</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            <span className="text-violet-400">PROJECTS</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Look at my projects that show my skills in full-stack web development
 
           </p>
@@ -71,25 +71,25 @@ const Projects = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10"
         >
           {projects.slice(0, 2).map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-[#242424] rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-700 hover:border-gray-600"
+              className="bg-[#151519] rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#2a2a30] hover:border-violet-400/40"
             >
               {/* Project Title */}
-              <div className="p-6 pb-0">
-                <h3 className="text-2xl font-bold text-white mb-4">
+              <div className="p-7 pb-0">
+                <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
                   {project.title}
                 </h3>
               </div>
 
               {/* Project Image */}
               <div 
-                className="relative h-64 mx-6 mb-6 overflow-hidden bg-gray-800 rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="relative h-64 mx-7 mb-6 overflow-hidden bg-[#1d1d23] rounded-xl cursor-pointer hover:opacity-90 transition-opacity border border-[#2a2a30]"
                 onClick={() => setSelectedImage(project.image)}
               >
                 <Image 
@@ -101,8 +101,8 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-8">
-                <p className="text-gray-400 mb-6 leading-relaxed">
+              <div className="p-8 pt-6">
+                <p className="text-gray-400 mb-6 leading-relaxed text-[15px] sm:text-base">
                   {project.description}
                 </p>
 
@@ -112,7 +112,7 @@ const Projects = () => {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-[#222228] text-gray-300 rounded-full text-sm font-medium border border-[#2e2e36]"
                       >
                         {tech}
                       </span>
@@ -127,7 +127,7 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500 hover:bg-violet-400 text-white rounded-md text-sm font-medium transition-colors"
                     >
                       Live demo
                     </a>
@@ -138,7 +138,7 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-md text-sm font-medium transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#25252c] hover:bg-[#31313a] text-white rounded-md text-sm font-medium transition-colors"
                     >
                       Source Code
                     </a>
@@ -155,7 +155,7 @@ const Projects = () => {
             href="https://github.com/ravikhokle"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-transparent border border-gray-600 hover:bg-gray-800 text-gray-200 rounded-md text-sm font-semibold transition-colors"
+            className="inline-block px-6 py-3 bg-transparent border border-[#383842] hover:bg-[#19191f] text-gray-200 rounded-md text-sm font-semibold transition-colors"
           >
             More projects on GitHub
           </a>

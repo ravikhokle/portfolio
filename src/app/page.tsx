@@ -9,7 +9,7 @@ import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <main className="min-h-screen transition-colors">
+    <main className="min-h-screen bg-[#0b0b0d] text-white transition-colors">
       <Header />
       <Hero />
       <Projects />

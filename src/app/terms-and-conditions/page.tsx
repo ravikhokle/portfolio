@@ -66,7 +66,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-2xl font-semibold text-white mb-3">Contact</h2>
             <p>
-              For questions about these Terms, email <a className="text-[#3b82f6] underline" href="mailto:contact@ravikhokle.site">contact@ravikhokle.site</a>.
+              For questions about these Terms, email <a className="text-[#3b82f6] underline" href="mailto:ravikhokle1@gmail.com">ravikhokle1@gmail.com</a>.
             </p>
           </div>
 

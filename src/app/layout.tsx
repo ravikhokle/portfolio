@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ravikhokle.site"),
@@ -55,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={`${plusJakartaSans.variable} ${plusJakartaSans.className} overflow-x-hidden`}>
         {/* Organization & Website JSON-LD */}
         <Script
           id="ld-org"
@@ -70,7 +70,6 @@ export default function RootLayout({
               sameAs: [
                 "https://github.com/ravikhokle",
                 "https://www.linkedin.com/in/ravikhokle/",
-                "https://www.instagram.com/ravi__khokle/",
               ],
             }),
           }}

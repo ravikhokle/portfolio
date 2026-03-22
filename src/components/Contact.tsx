@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -61,8 +61,8 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       label: "Email",
-  value: "contact@ravikhokle.site",
-  href: "mailto:contact@ravikhokle.site"
+  value: "ravikhokle1@gmail.com",
+  href: "mailto:ravikhokle1@gmail.com"
     },
     {
       icon: <Phone size={24} />,
@@ -83,7 +83,7 @@ const Contact = () => {
       icon: <Linkedin size={24} />,
       label: "LinkedIn", 
       href: "https://linkedin.com/in/ravikhokle",
-      color: "hover:text-blue-600"
+      color: "hover:text-violet-400"
     },
     
     {
@@ -93,41 +93,35 @@ const Contact = () => {
       color: "hover:text-gray-900 dark:hover:text-white"
     },
  
-    {
-      icon: <Instagram size={24} />,
-      label: "Instagram",
-      href: "https://www.instagram.com/ravi__khokle/",
-      color: "hover:text-pink-500"
-    }
   ];
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] text-white">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-14 sm:mb-18"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 px-4">
-            Let's Work <span className="text-[#3b82f6]">Together</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 px-4">
+            Let's Work <span className="text-violet-400">Together</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4 leading-relaxed">
             Have a project in mind? Let's discuss how we can bring your ideas to life
             with cutting-edge technology and stunning design.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#242424] rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-700"
+            className="bg-[#151519] rounded-3xl p-6 sm:p-8 shadow-xl border border-[#2a2a30]"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
               Send Me a Message
@@ -146,7 +140,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
+                    className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
@@ -161,7 +155,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
+                    className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -178,7 +172,7 @@ const Contact = () => {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors"
+                  className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors"
                   placeholder="Project inquiry"
                 />
               </div>
@@ -194,7 +188,7 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent bg-[#1a1a1a] text-white transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors resize-none"
                   placeholder="Tell me about your project, goals, and timeline..."
                 ></textarea>
               </div>
@@ -204,7 +198,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-[#3b82f6] hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="w-full py-4 bg-violet-500 hover:bg-violet-400 disabled:bg-violet-300 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -270,10 +264,10 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-[#242424] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
+                  className="bg-[#151519] rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2a2a30] hover:border-violet-400/40"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-[#3b82f6]/20 rounded-full flex items-center justify-center text-[#3b82f6]">
+                    <div className="w-12 h-12 bg-violet-500/20 rounded-full flex items-center justify-center text-violet-300">
                       {info.icon}
                     </div>
                     <div>
@@ -283,7 +277,7 @@ const Contact = () => {
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-gray-400 hover:text-[#3b82f6] transition-colors"
+                          className="text-gray-400 hover:text-violet-300 transition-colors"
                         >
                           {info.value}
                         </a>
@@ -315,7 +309,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.1 }}
-                    className={`w-12 h-12 bg-[#242424] border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-[#3b82f6] transition-colors`}
+                    className={`w-12 h-12 bg-[#151519] border border-[#2a2a30] rounded-full flex items-center justify-center text-gray-400 hover:text-violet-300 hover:border-violet-400/60 transition-colors`}
                   >
                     {social.icon}
                   </motion.a>
