@@ -36,7 +36,7 @@ const ParticlesBackground = () => {
           color: '#8b5cf6',
           distance: 140,
           enable: true,
-          opacity: 0.2,
+          opacity: 0.35,
           width: 1,
         },
         move: {
@@ -57,7 +57,7 @@ const ParticlesBackground = () => {
           value: 45,
         },
         opacity: {
-          value: 0.4,
+          value: 0.6,
         },
         shape: {
           type: 'circle',
@@ -94,7 +94,7 @@ const ParticlesBackground = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-20">
-      <Particles id="portfolio-particles" options={options} className="h-full w-full opacity-40" />
+      <Particles id="portfolio-particles" options={options} className="h-full w-full opacity-80" />
     </div>
   );
 };
