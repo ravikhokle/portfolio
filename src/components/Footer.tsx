@@ -35,8 +35,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0b0b0d] text-white border-t border-[#2a2a30]">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-10">
           {/* Brand Section */}
           <motion.div

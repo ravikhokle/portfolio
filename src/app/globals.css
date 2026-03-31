@@ -97,3 +97,32 @@ html {
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
 }
+
+/* Subtle dot-grid background */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, #ffffff06 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Focus-visible ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle glow pulse for featured elements */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.08); }
+  50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.15); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Section divider gradient */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8b5cf620, transparent);
+}

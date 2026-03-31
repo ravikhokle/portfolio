@@ -20,6 +20,7 @@ const Hero = () => {
       className="relative flex min-h-[calc(100vh-88px)] flex-col items-center justify-center overflow-hidden bg-[#0b0b0d] pt-24 pb-16 text-white md:pt-28"
     >
       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-dot-grid opacity-40" />
         <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl" />
       </div>
@@ -31,6 +32,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -77,24 +79,25 @@ const Hero = () => {
               transition={{ delay: 0.65 }}
               className="text-base sm:text-lg lg:text-xl text-gray-300 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              I build scalable full-stack web applications using React, Node.js, and MongoDB. Passionate about clean code and performance.
+              I build scalable full-stack web applications using React, Node.js, and modern databases. Focused on clean architecture, performance optimization, and real-world problem solving.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(139, 92, 246, 0.3)' }}
                 whileTap={{ scale: 0.96 }}
                 onClick={scrollToContact}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-violet-500 hover:bg-violet-400 text-white font-semibold rounded-full transition-colors duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-violet-500/20"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-violet-500 hover:bg-violet-400 text-white font-semibold rounded-full transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-violet-500/20"
               >
                 <span>Get in Touch</span>
                 <ArrowRight size={20} />
               </motion.button>
+
 
               <div className="flex space-x-4">
                 <motion.a
@@ -102,18 +105,20 @@ const Hero = () => {
                   href="https://linkedin.com/in/ravikhokle"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-[#2a2a30] bg-[#151519] text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
+                  className="group flex items-center gap-2 rounded-full border border-[#2a2a30] bg-[#151519] px-4 py-2 text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
                 >
-                  <Linkedin size={24} />
+                  <Linkedin size={22} />
+                  <span className="text-sm font-semibold">LinkedIn</span>
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   href="https://github.com/ravikhokle"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-[#2a2a30] bg-[#151519] text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
+                  className="group flex items-center gap-2 rounded-full border border-[#2a2a30] bg-[#151519] px-4 py-2 text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
                 >
-                  <Github size={24} />
+                  <Github size={22} />
+                  <span className="text-sm font-semibold">GitHub</span>
                 </motion.a>
               </div>
             </motion.div>

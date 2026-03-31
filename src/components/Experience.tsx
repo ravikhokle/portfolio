@@ -6,129 +6,93 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Full Stack Developer",
-      company: "TOS – Totally Optimised Solutions",
-      period: "Jan 2025 – Jun 2025",
-      description:
-        "Internship focused on building and shipping features across the MERN stack with a performance-first mindset.",
-      logo: "🚀", // Placeholder
+      title: "Backend Developer Intern",
+      company: "Inovetex Solutions",
+      location: "Remote, Pune",
+      period: "Jan 2026 – Mar 2026",
       achievements: [
-        "Built REST APIs with Express and MongoDB/PostgreSQL",
-        "Worked with databases for schema design and data access",
-        "Improved performance through query tuning and caching",
-        "Developed responsive UI components with React and Tailwind",
+        "Built a reusable e-commerce backend with authentication, REST APIs, and MongoDB",
+        "Developed scalable APIs using Node.js and Express",
+        "Implemented JWT-based authentication and role-based access control",
+        "Designed database schemas for multi-project usage",
       ],
+      tech: ["Node.js", "Express", "MongoDB", "JWT", "REST APIs"],
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0
-    }
-  };
-
   return (
-    <section id="experience" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
+    <section id="experience" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
             <span className="text-violet-400">EXPERIENCE</span>
           </h2>
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Professional experience building production-ready applications.
+          </p>
         </motion.div>
 
-        {/* Experience Timeline */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="space-y-12 lg:space-y-14"
-        >
-          {experiences.map((experience, index) => (
+        <div className="space-y-6">
+          {experiences.map((experience) => (
             <motion.div
               key={experience.id}
-              variants={itemVariants}
-              className="relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-[#151519] rounded-2xl p-8 border border-[#2a2a30] shadow-lg hover:border-violet-400/50 hover:shadow-violet-500/10 transition-all duration-300"
             >
-              {/* Timeline Line */}
-              {index !== experiences.length - 1 && (
-                <div className="absolute left-8 top-20 w-0.5 h-32 bg-violet-500/35"></div>
-              )}
-              
-              {/* Experience Card */}
-              <div className="flex items-start space-x-6">
-                {/* Company Logo/Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-[#151519] rounded-full flex items-center justify-center text-2xl border-2 border-[#2d2d36]">
-                    {experience.logo}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 bg-[#151519] rounded-2xl p-8 border border-[#2a2a30] hover:border-violet-400/40 transition-colors duration-300">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1">
-                        {experience.title}
-                      </h3>
-                      <p className="text-violet-300 font-medium">
-                        {experience.company}
-                      </p>
-                    </div>
-                    <div className="mt-2 sm:mt-0">
-                      <span className="px-3 py-1 bg-[#222228] text-gray-300 rounded-full text-sm font-medium border border-[#2e2e36]">
-                        {experience.period}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    {experience.description}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-5">
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-0.5">
+                    {experience.title}
+                  </h3>
+                  <p className="text-violet-300 font-medium text-sm">
+                    {experience.company}
+                    <span className="text-gray-500 font-normal"> · {experience.location}</span>
                   </p>
+                </div>
+                <div className="mt-2 sm:mt-1">
+                  <span className="px-3 py-1 bg-[#222228] text-gray-300 rounded-full text-xs font-medium border border-[#2e2e36]">
+                    {experience.period}
+                  </span>
+                </div>
+              </div>
 
-                  {/* Achievements */}
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wide">
-                      Key Achievements
-                    </h4>
-                    <ul className="space-y-2">
-                      {experience.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="text-violet-400 mr-2 mt-1.5">•</span>
-                          <span className="text-gray-300 text-sm">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <ul className="space-y-2.5 mb-6">
+                {experience.achievements.map((achievement, idx) => (
+                  <li key={idx} className="flex items-baseline gap-2">
+                    <span className="text-violet-400 text-[10px]">●</span>
+                    <span className="text-gray-300 text-sm leading-relaxed">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="pt-5 border-t border-[#2a2a30]">
+                <div className="flex flex-wrap gap-2">
+                  {experience.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-0.5 bg-[#222228] text-gray-300 rounded-full text-xs font-medium border border-[#2e2e36]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Experience;
+

@@ -98,20 +98,20 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
+    <section id="contact" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14 sm:mb-18"
+          className="text-center mb-14 lg:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 px-4">
-            Contact
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+            <span className="text-violet-400">CONTACT</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4 leading-relaxed">
-            Email, call, or drop a note—I'll respond quickly.
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Feel free to reach out regarding opportunities or collaborations.
           </p>
         </motion.div>
 
@@ -206,7 +206,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors resize-none"
-                  placeholder="Tell me about your project, goals, and timeline..."
+                  placeholder="Share the opportunity details, team, and how I can help."
                 ></textarea>
               </div>
 
@@ -215,7 +215,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-violet-500 hover:bg-violet-400 disabled:bg-violet-300 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="w-full py-4 bg-violet-500 hover:bg-violet-400 disabled:bg-violet-300 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:shadow-lg hover:shadow-violet-500/25"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>

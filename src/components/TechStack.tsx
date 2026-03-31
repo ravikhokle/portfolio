@@ -3,10 +3,18 @@
 import { motion } from 'framer-motion';
 
 const categories = [
-  { title: 'Frontend', items: ['React', 'Next.js', 'HTML', 'CSS', 'Tailwind'] },
-  { title: 'Backend', items: ['Node.js', 'Express'] },
+  { title: 'Frontend', items: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'] },
+  { title: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs'] },
   { title: 'Database', items: ['MongoDB', 'PostgreSQL', 'MySQL'] },
-  { title: 'Tools', items: ['Git', 'GitHub', 'Docker', 'AWS', 'Nginx', 'DigitalOcean'] },
+  { title: 'DevOps & Tools', items: ['Git', 'GitHub', 'Docker', 'AWS EC2', 'Nginx', 'DigitalOcean'] },
+];
+
+const coreSkills = [
+  'REST API Development',
+  'JWT Authentication & Authorization',
+  'CRUD Operations & MVC Architecture',
+  'Deployment & Server Management',
+  'Responsive UI Development',
 ];
 
 const TechStack = () => {
@@ -55,6 +63,30 @@ const TechStack = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-10 rounded-2xl border border-[#2a2a30] bg-[#151519] p-6 shadow-lg"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+            <h3 className="text-2xl font-semibold text-white">Core Skills</h3>
+            <p className="text-sm text-gray-400">Hands-on capabilities for production systems</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {coreSkills.map((skill) => (
+              <div
+                key={skill}
+                className="flex items-center gap-3 rounded-xl border border-[#2f2f39] bg-[#1b1b21] px-3 py-2 text-gray-200"
+              >
+                <span className="text-violet-300">•</span>
+                <span className="text-sm font-medium">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

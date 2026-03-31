@@ -7,7 +7,7 @@ const categories = [
   { title: 'Frontend', items: ['React', 'Next.js', 'HTML', 'CSS', 'Tailwind'] },
   { title: 'Backend', items: ['Node.js', 'Express'] },
   { title: 'Database', items: ['MongoDB', 'PostgreSQL', 'MySQL'] },
-  { title: 'Tools', items: ['Git', 'GitHub', 'Docker', 'AWS', 'Nginx', 'DigitalOcean'] },
+  { title: 'Tools', items: ['Git', 'GitHub', 'Postman', 'Nginx'] },
 ];
 
 const skills = [
@@ -20,8 +20,8 @@ const skills = [
 
 const StackSkills = () => {
   return (
-    <section id="stack-skills" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
-      <div className="max-w-6xl mx-auto space-y-14">
+    <section id="stack-skills" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
+      <div className="max-w-6xl mx-auto space-y-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,11 +29,11 @@ const StackSkills = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
             <span className="text-violet-400">TECH STACK & SKILLS</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Tech stack and skills I use to ship scalable, production-ready products.
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Technologies I use to build scalable applications.
           </p>
         </motion.div>
 
@@ -52,11 +52,10 @@ const StackSkills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-[#151519] border border-[#2a2a30] rounded-2xl p-5 shadow-lg hover:border-violet-400/50 transition-colors"
+                className="bg-[#151519] border border-[#2a2a30] rounded-2xl p-5 shadow-lg hover:border-violet-400/50 hover:shadow-violet-500/10 transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                  <div className="text-sm text-gray-500">{category.items.length} tools</div>
+                <div className="mb-3">
+                  <h3 className="text-lg font-semibold text-white">{category.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.items.map((item) => (
@@ -86,7 +85,7 @@ const StackSkills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="flex items-center space-x-4 bg-[#151519] border border-[#2a2a30] rounded-xl p-5 hover:border-violet-400/50 transition-colors"
+                className="flex items-center space-x-4 bg-[#151519] border border-[#2a2a30] rounded-xl p-5 hover:border-violet-400/50 hover:shadow-violet-500/10 transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-lg bg-violet-500/15 text-violet-300 flex items-center justify-center">
                   {skill.icon}
