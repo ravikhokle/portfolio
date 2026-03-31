@@ -4,15 +4,19 @@ import nodemailer from 'nodemailer';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-  const { name, email, subject, message } = body;
+  const { name, email, phone, subject, message } = body;
 
     // Basic validation
-    if (!name || !email || !subject || !message) {
+    if (!name || !email || !subject || !message || !phone) {
       return NextResponse.json(
         { error: 'All required fields must be filled' },
         { status: 400 }
       );
     }
+
+    const profileImage =
+      process.env.EMAIL_PROFILE_IMAGE ||
+      'https://raw.githubusercontent.com/ravikhokle/portfolio/main/public/Images/me/ravikhokle.png';
 
     // Ensure email envs are present
     const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
@@ -63,7 +67,7 @@ export async function POST(request: NextRequest) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <!-- Profile Header -->
           <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #3b82f6;">
-            <img src="https://ravikhokle.site/Images/me/ravikhokle.png" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
+            <img src="${profileImage}" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
             <h3 style="margin: 0; color: #1f2937;">Ravi Khokle</h3>
             <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">Full Stack Developer</p>
           </div>
@@ -72,6 +76,7 @@ export async function POST(request: NextRequest) {
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
             <p><strong>Subject:</strong> ${subject}</p>
           </div>
           <div style="background: #ffffff; padding: 20px; border-left: 4px solid #3b82f6;">
@@ -96,7 +101,7 @@ export async function POST(request: NextRequest) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <!-- Profile Header -->
           <div style="text-align: center; padding: 20px 0; border-bottom: 2px solid #3b82f6;">
-            <img src="https://ravikhokle.site/Images/me/ravikhokle.png" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
+            <img src="${profileImage}" alt="Ravi Khokle" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; margin-bottom: 10px;" />
             <h3 style="margin: 0; color: #1f2937;">Ravi Khokle</h3>
             <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">Full Stack Developer & UI/UX Designer</p>
           </div>
@@ -108,6 +113,7 @@ export async function POST(request: NextRequest) {
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Your Message Summary:</h3>
             <p><strong>Subject:</strong> ${subject}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
             <p><strong>Message:</strong> ${message}</p>
           </div>
           
@@ -115,7 +121,7 @@ export async function POST(request: NextRequest) {
           
           <p>Best regards,<br>
           <strong>Ravi Khokle</strong><br>
-          Full Stack Developer & UI/UX Designer</p>
+          Full Stack Developer </p>
         </div>
       `,
     };

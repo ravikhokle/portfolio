@@ -8,6 +8,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: ''
   });
@@ -39,6 +40,7 @@ const Contact = () => {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           subject: '',
           message: ''
         });
@@ -106,11 +108,10 @@ const Contact = () => {
           className="text-center mb-14 sm:mb-18"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 px-4">
-            Let's Work <span className="text-violet-400">Together</span>
+            Contact
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4 leading-relaxed">
-            Have a project in mind? Let's discuss how we can bring your ideas to life
-            with cutting-edge technology and stunning design.
+            Email, call, or drop a note—I'll respond quickly.
           </p>
         </motion.div>
 
@@ -159,6 +160,22 @@ const Contact = () => {
                     placeholder="your@email.com"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Phone *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-[#2f2f39] rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-[#0f0f13] text-white transition-colors"
+                  placeholder="e.g., +91 7218014410"
+                />
               </div>
 
               <div>
@@ -248,9 +265,7 @@ const Contact = () => {
                 Get in Touch
               </h3>
               <p className="text-gray-400 mb-8 leading-relaxed">
-                I'm always excited to work on new projects and collaborate with amazing people.
-                Whether you have a specific project in mind or just want to explore possibilities,
-                don't hesitate to reach out!
+                Prefer direct outreach? Use any of the channels below and I will follow up.
               </p>
             </div>
 

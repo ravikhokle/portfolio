@@ -1,12 +1,15 @@
-export const metadata = {
-  title: 'Refund Policy | Ravi Khokle',
-  description: 'Refund Policy for services purchased from Ravi Khokle.',
-  alternates: { canonical: '/refund-policy' },
-  openGraph: { url: '/refund-policy', title: 'Refund Policy | Ravi Khokle' },
-};
-
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+const siteUrl = 'https://ravikhokle.dev';
+
+export const metadata: Metadata = {
+  title: 'Refund Policy | Ravi Khokle',
+  description: 'Refund Policy for services purchased from Ravi Khokle.',
+  alternates: { canonical: `${siteUrl}/refund-policy` },
+  openGraph: { url: `${siteUrl}/refund-policy`, title: 'Refund Policy | Ravi Khokle' },
+};
 
 export default function RefundPolicyPage() {
   return (

@@ -1,12 +1,15 @@
-export const metadata = {
-  title: 'Terms & Conditions | Ravi Khokle',
-  description: 'Terms and Conditions for using the website and services of Ravi Khokle.',
-  alternates: { canonical: '/terms-and-conditions' },
-  openGraph: { url: '/terms-and-conditions', title: 'Terms & Conditions | Ravi Khokle' },
-};
-
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+const siteUrl = 'https://ravikhokle.dev';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions | Ravi Khokle',
+  description: 'Terms and Conditions for using the website and services of Ravi Khokle.',
+  alternates: { canonical: `${siteUrl}/terms-and-conditions` },
+  openGraph: { url: `${siteUrl}/terms-and-conditions`, title: 'Terms & Conditions | Ravi Khokle' },
+};
 
 export default function TermsPage() {
   return (

@@ -1,12 +1,15 @@
-export const metadata = {
-  title: 'Privacy Policy | Ravi Khokle',
-  description: 'Privacy Policy for the portfolio and services website of Ravi Khokle.',
-  alternates: { canonical: '/privacy-policy' },
-  openGraph: { url: '/privacy-policy', title: 'Privacy Policy | Ravi Khokle' },
-};
-
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+const siteUrl = 'https://ravikhokle.dev';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Ravi Khokle',
+  description: 'Privacy Policy for the portfolio and services website of Ravi Khokle.',
+  alternates: { canonical: `${siteUrl}/privacy-policy` },
+  openGraph: { url: `${siteUrl}/privacy-policy`, title: 'Privacy Policy | Ravi Khokle' },
+};
 
 export default function PrivacyPolicyPage() {
   return (

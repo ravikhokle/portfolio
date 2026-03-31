@@ -37,9 +37,9 @@ const Header = () => {
   const pathname = usePathname();
   const navItems = [
     { name: 'Home', id: 'home' },
+    { name: 'Tech Stack & Skills', id: 'stack-skills' },
     { name: 'Projects', id: 'projects' },
     { name: 'Experience', id: 'experience' },
-    { name: 'Services', id: 'services' },
     { name: 'Contact', id: 'contact' },
   ];
 

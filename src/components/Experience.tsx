@@ -7,29 +7,16 @@ const Experience = () => {
     {
       id: 1,
       title: "Full Stack Developer",
-      company: "Lumonix Labs AI",
-      period: "Jul 2025 – Present",
-      description:
-        "Working on AI-powered web applications with modern stacks (Next.js, Node.js) and integrating ML-driven features to deliver business value.",
-      logo: "🧠", // AI-themed emoji placeholder
-      achievements: [
-        "Built and shipped features in a Next.js/TypeScript codebase",
-        "Implemented APIs and optimized performance for core user flows",
-        "Collaborated with design and product to deliver on rapid timelines",
-      ],
-    },
-    {
-      id: 2,
-      title: "Full Stack Developer",
       company: "TOS – Totally Optimised Solutions",
       period: "Jan 2025 – Jun 2025",
       description:
-        "Contributed across frontend and backend to deliver client projects, improve UI/UX, and harden deployments.",
+        "Internship focused on building and shipping features across the MERN stack with a performance-first mindset.",
       logo: "🚀", // Placeholder
       achievements: [
-        "Developed responsive UIs with React/Tailwind",
-        "Created REST endpoints and integrated databases",
-        "Improved Lighthouse performance scores and SEO basics",
+        "Built REST APIs with Express and MongoDB/PostgreSQL",
+        "Worked with databases for schema design and data access",
+        "Improved performance through query tuning and caching",
+        "Developed responsive UI components with React and Tailwind",
       ],
     },
   ];

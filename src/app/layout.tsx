@@ -7,24 +7,24 @@ import "./globals.css";
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ravikhokle.site"),
+  metadataBase: new URL("https://ravikhokle.dev"),
   title: {
-    default: "Ravi Khokle - Full Stack Developer & MERN Stack Developer",
+    default: "Ravi Khokle - Full Stack Developer (MERN)",
     template: "%s | Ravi Khokle",
   },
   description:
-    "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
+    "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
   keywords:
-    "Ravi Khokle, Full Stack Developer, React Developer, Next.js Developer, MERN Stack Developer",
-  authors: [{ name: "Ravi Khokle", url: "https://ravikhokle.site" }],
+    "Ravi Khokle, Full Stack Developer, MERN, React, Next.js, Node.js, MongoDB, PostgreSQL, AWS, Internship, Entry-level",
+  authors: [{ name: "Ravi Khokle", url: "https://ravikhokle.dev" }],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Ravi Khokle - Full Stack Developer",
-    description: "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
+    description: "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
     type: "website",
-    url: "https://ravikhokle.site/",
+    url: "https://ravikhokle.dev/",
     siteName: "Ravi Khokle",
     images: [
       {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ravi Khokle - Full Stack Developer",
     description:
-      "I will create your website with a responsive design for all devices, whether you are looking for a portfolio, your brand website, an E-Commerce website, or AI integration on your website.",
+      "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
     creator: "@ravikhokle",
     images: ["/Images/me/ravikhokle.png"],
   },
@@ -68,7 +68,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Ravi Khokle",
-              url: "https://ravikhokle.site/",
+              url: "https://ravikhokle.dev/",
               sameAs: [
                 "https://github.com/ravikhokle",
                 "https://www.linkedin.com/in/ravikhokle/",

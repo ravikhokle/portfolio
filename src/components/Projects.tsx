@@ -11,8 +11,14 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Ai-Powered Resume Builder",
-      description: "Build your resume with a pre-built template and download, use AI to generate a summary, or get help while building your resume.",
+      title: "AI Resume Builder",
+      problem: "Job seekers struggle to quickly craft tailored resumes with consistent formatting.",
+      features: [
+        "Template-driven resume creation with real-time preview",
+        "AI-generated summaries using Gemini API",
+        "Asset storage via Cloudinary with secure uploads",
+        "Export-ready PDF download"
+      ],
       tech: ["React", "Node", "Express", "MongoDB", "Gemini API", "Cloudinary"],
       image: "/Images/projects/resumeBuilder.png",
       liveUrl: "https://resumebuilder.ninja/",
@@ -21,7 +27,13 @@ const Projects = () => {
     {
       id: 2,
       title: "InternshipYatra",
-      description: "A platform where HR can publish internships, check applicants, and download their resumes, and Users can apply for internships with their resume.",
+      problem: "HR teams need a lightweight way to publish internships and review applicants without extra tooling.",
+      features: [
+        "Employer dashboard to publish roles and track applicants",
+        "Resume uploads with quick download for reviewers",
+        "Role-based flows for HR and applicants",
+        "Searchable listings with responsive UI"
+      ],
       tech: ["React", "Express", "Node", "MongoDB", "TailwindCSS", "Axios"],
       image: "/Images/projects/internshipYatra.png",
       liveUrl: "https://internshipyatra.ravikhokle.site",
@@ -48,21 +60,20 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
+    <section id="projects" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-14 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
             <span className="text-violet-400">PROJECTS</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Look at my projects that show my skills in full-stack web development
-
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Impactful builds that showcase end-to-end ownership across frontend, backend, and deployment.
           </p>
         </motion.div>
 
@@ -71,25 +82,26 @@ const Projects = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
         >
           {projects.slice(0, 2).map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-[#151519] rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#2a2a30] hover:border-violet-400/40"
+              className="bg-[#151519] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#2a2a30] hover:border-violet-400/40"
             >
               {/* Project Title */}
-              <div className="p-7 pb-0">
-                <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
+              <div className="p-6 pb-0">
+                <h3 className="text-xl font-bold tracking-tight text-white mb-1.5">
                   {project.title}
                 </h3>
+                <p className="text-sm text-gray-400">{project.problem}</p>
               </div>
 
               {/* Project Image */}
               <div 
-                className="relative h-64 mx-7 mb-6 overflow-hidden bg-[#1d1d23] rounded-xl cursor-pointer hover:opacity-90 transition-opacity border border-[#2a2a30]"
+                className="relative h-56 mx-6 mb-5 overflow-hidden bg-[#1d1d23] rounded-lg cursor-pointer hover:opacity-90 transition-opacity border border-[#2a2a30]"
                 onClick={() => setSelectedImage(project.image)}
               >
                 <Image 
@@ -101,13 +113,22 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-8 pt-6">
-                <p className="text-gray-400 mb-6 leading-relaxed text-[15px] sm:text-base">
-                  {project.description}
-                </p>
+              <div className="p-6 pt-5 space-y-4.5">
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">Key Features</h4>
+                  <ul className="space-y-1.5 text-gray-300 text-sm">
+                    {project.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2">
+                        <span className="text-violet-400 mt-1">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {/* Tech Stack */}
-                <div className="mb-6">
+                <div className="pt-1">
+                  <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">Tech</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
@@ -121,7 +142,7 @@ const Projects = () => {
                 </div>
 
                 {/* Links */}
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 pt-2">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -150,7 +171,7 @@ const Projects = () => {
         </motion.div>
 
         {/* More projects CTA */}
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <a
             href="https://github.com/ravikhokle"
             target="_blank"

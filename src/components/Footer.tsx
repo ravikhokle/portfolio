@@ -7,18 +7,10 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/#home' },
+    { name: 'Tech Stack & Skills', href: '/#stack-skills' },
     { name: 'Projects', href: '/#projects' },
     { name: 'Experience', href: '/#experience' },
-    { name: 'Services', href: '/#services' },
     { name: 'Contact', href: '/#contact' },
-  ];
-
-  const services = [
-    'Full Stack Development',
-    'WordPress Design',
-    'Mobile Development',
-    'E-Commerce Solutions',
-    'Performance Optimization',
   ];
 
   const socialLinks = [
@@ -45,7 +37,7 @@ const Footer = () => {
     <footer className="bg-[#0b0b0d] text-white border-t border-[#2a2a30]">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-7 sm:gap-10">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-10">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -62,8 +54,7 @@ const Footer = () => {
               <Link href="/" className="hover:text-violet-300 transition-colors">Ravi Khokle</Link>
             </motion.div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              Full Stack Developer & UI/UX Designer creating digital experiences
-              that make a difference. Let's build something amazing together.
+              Full Stack Developer (MERN) focused on scalable, performant web applications. Open to internships and entry-level roles.
             </p>
             
             {/* Social Links */}
@@ -112,51 +103,6 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Legal (replacing previous Services column) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="text-xl font-semibold mb-6">Legal</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="/privacy-policy" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="/terms-and-conditions" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="/refund-policy" className="text-gray-400 hover:text-violet-300 transition-colors duration-300">
-                  Refund Policy
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Services (added back in the same row) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h4 className="text-xl font-semibold mb-6">Services</h4>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-gray-400 hover:text-violet-300 transition-colors duration-300 cursor-default">
-                    {service}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
       </div>
     </footer>
