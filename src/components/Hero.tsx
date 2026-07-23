@@ -1,132 +1,118 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
+import { siteConfig } from "@/lib/data";
 
-const Hero = () => {
-  const raviImage = '/Images/me/ravikhokle.png';
-
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+export default function Hero() {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const headerH = document.getElementById("site-header")?.offsetHeight ?? 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-88px)] flex-col items-center justify-center overflow-hidden bg-[#0b0b0d] pt-24 pb-16 text-white md:pt-28"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-20 pb-16 sm:pt-24 sm:pb-20 px-4 sm:px-6 overflow-hidden"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-dot-grid opacity-40" />
-        <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl" />
-      </div>
+      <div className="absolute inset-0 bg-glow pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-center overflow-hidden py-12">
-        <div className="mx-auto max-w-6xl px-6 text-center sm:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
+        >
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden ring-2 ring-accent/30 ring-offset-2 ring-offset-background shadow-lg shadow-accent/10">
+            <Image
+              src={siteConfig.image}
+              alt={siteConfig.name}
+              fill
+              className="object-cover"
+              priority
+              sizes="128px"
+            />
+          </div>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground mb-3 px-1"
+        >
+          {siteConfig.name}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-base sm:text-lg md:text-2xl font-medium text-accent mb-4 sm:mb-6 px-1"
+        >
+          {siteConfig.title}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-sm sm:text-base md:text-lg text-muted max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-1"
+        >
+          {siteConfig.description} Experienced in developing REST APIs, authentication systems,
+          cloud deployments, and responsive user interfaces with a strong focus on clean
+          architecture and performance.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 w-full max-w-md sm:max-w-none mx-auto"
+        >
+          <a
+            href={siteConfig.resume}
+            download="Ravi_Khokle_Resume.pdf"
+            className="col-span-2 inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity min-h-[44px]"
           >
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
-            >
-              <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 mx-auto rounded-full relative">
-                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-violet-300/40 shadow-[0_0_40px_rgba(139,92,246,0.16)]">
-                  <Image src={raviImage} alt="Ravi Khokle" fill className="object-cover" />
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-violet-400 font-medium text-base sm:text-lg mb-2"
-            >
-              Hello, I'm
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-extrabold text-white mb-3"
-            >
-              Ravi Khokle
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg sm:text-2xl md:text-3xl font-semibold text-gray-100 mb-5"
-            >
-              Full Stack Developer (MERN)
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.65 }}
-              className="text-base sm:text-lg lg:text-xl text-gray-300 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed"
-            >
-              I build scalable full-stack web applications using React, Node.js, and modern databases. Focused on clean architecture, performance optimization, and real-world problem solving.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(139, 92, 246, 0.3)' }}
-                whileTap={{ scale: 0.96 }}
-                onClick={scrollToContact}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-violet-500 hover:bg-violet-400 text-white font-semibold rounded-full transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-violet-500/20"
-              >
-                <span>Get in Touch</span>
-                <ArrowRight size={20} />
-              </motion.button>
-
-
-              <div className="flex space-x-4">
-                <motion.a
-                  whileHover={{ scale: 1.2, rotate: -5 }}
-                  href="https://linkedin.com/in/ravikhokle"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 rounded-full border border-[#2a2a30] bg-[#151519] px-4 py-2 text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
-                >
-                  <Linkedin size={22} />
-                  <span className="text-sm font-semibold">LinkedIn</span>
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  href="https://github.com/ravikhokle"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 rounded-full border border-[#2a2a30] bg-[#151519] px-4 py-2 text-gray-300 hover:text-violet-300 hover:border-violet-400/50 transition-colors"
-                >
-                  <Github size={22} />
-                  <span className="text-sm font-semibold">GitHub</span>
-                </motion.a>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            <Download size={16} />
+            Download Resume
+          </a>
+          <button
+            onClick={() => scrollTo("projects")}
+            className="inline-flex items-center justify-center gap-2 px-3 py-3 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-full border border-card bg-card text-foreground text-sm font-medium hover:border-accent/50 transition-colors min-h-[44px]"
+          >
+            <span className="sm:hidden">Projects</span>
+            <span className="hidden sm:inline">View Projects</span>
+            <ArrowDown size={16} className="shrink-0" />
+          </button>
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-3 py-3 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-full border border-card bg-card text-foreground text-sm font-medium hover:border-accent/50 transition-colors min-h-[44px]"
+          >
+            <Github size={16} />
+            GitHub
+          </a>
+          <a
+            href={siteConfig.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-3 py-3 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-full border border-card bg-card text-foreground text-sm font-medium hover:border-accent/50 transition-colors min-h-[44px]"
+          >
+            <Linkedin size={16} />
+            LinkedIn
+          </a>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

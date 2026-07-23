@@ -1,87 +1,66 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import SectionHeading from "@/components/SectionHeading";
+import { experiences } from "@/lib/data";
 
-const Experience = () => {
-  const experiences = [
-    {
-      id: 1,
-      title: "Backend Developer Intern",
-      company: "Inovetex Solutions",
-      location: "Remote, Pune",
-      period: "Jan 2026 – Mar 2026",
-      achievements: [
-        "Built a reusable e-commerce backend with authentication, REST APIs, and MongoDB",
-        "Developed scalable APIs using Node.js and Express",
-        "Implemented JWT-based authentication and role-based access control",
-        "Designed database schemas for multi-project usage",
-      ],
-      tech: ["Node.js", "Express", "MongoDB", "JWT", "REST APIs"],
-    },
-  ];
-
+export default function Experience() {
   return (
-    <section id="experience" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
+    <section id="experience" className="section-padding">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-            <span className="text-violet-400">EXPERIENCE</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Professional experience building production-ready applications.
-          </p>
-        </motion.div>
+        <SectionHeading
+          label="Experience"
+          title="Work Experience"
+          description="Professional experience building production-ready backend services and APIs."
+        />
 
         <div className="space-y-6">
-          {experiences.map((experience) => (
+          {experiences.map((exp, idx) => (
             <motion.div
-              key={experience.id}
-              initial={{ opacity: 0, y: 30 }}
+              key={exp.id}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-[#151519] rounded-2xl p-8 border border-[#2a2a30] shadow-lg hover:border-violet-400/50 hover:shadow-violet-500/10 transition-all duration-300"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className="rounded-2xl border border-card bg-card p-6 md:p-8 hover:border-accent/30 transition-colors"
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-5">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-0.5">
-                    {experience.title}
-                  </h3>
-                  <p className="text-violet-300 font-medium text-sm">
-                    {experience.company}
-                    <span className="text-gray-500 font-normal"> · {experience.location}</span>
-                  </p>
+                  <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
+                  <p className="text-accent text-sm font-medium mt-0.5">{exp.company}</p>
                 </div>
-                <div className="mt-2 sm:mt-1">
-                  <span className="px-3 py-1 bg-[#222228] text-gray-300 rounded-full text-xs font-medium border border-[#2e2e36]">
-                    {experience.period}
-                  </span>
-                </div>
+                <span className="inline-flex self-start px-3 py-1 rounded-full bg-background border border-card text-xs text-muted font-medium whitespace-nowrap">
+                  {exp.period}
+                </span>
               </div>
 
-              <ul className="space-y-2.5 mb-6">
-                {experience.achievements.map((achievement, idx) => (
-                  <li key={idx} className="flex items-baseline gap-2">
-                    <span className="text-violet-400 text-[10px]">●</span>
-                    <span className="text-gray-300 text-sm leading-relaxed">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm text-muted mb-5 leading-relaxed">{exp.description}</p>
 
-              <div className="pt-5 border-t border-[#2a2a30]">
+              <div className="mb-5">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted mb-3">
+                  Responsibilities
+                </h4>
+                <ul className="space-y-2">
+                  {exp.responsibilities.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted">
+                      <span className="text-accent mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-5 border-t border-card">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted mb-3">
+                  Technologies Used
+                </h4>
                 <div className="flex flex-wrap gap-2">
-                  {experience.tech.map((tech) => (
+                  {exp.tech.map((t) => (
                     <span
-                      key={tech}
-                      className="px-2.5 py-0.5 bg-[#222228] text-gray-300 rounded-full text-xs font-medium border border-[#2e2e36]"
+                      key={t}
+                      className="px-2.5 py-0.5 rounded-md bg-background border border-card text-xs text-muted"
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
@@ -92,7 +71,4 @@ const Experience = () => {
       </div>
     </section>
   );
-};
-
-export default Experience;
-
+}

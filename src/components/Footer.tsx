@@ -1,112 +1,79 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
+import { navItems, siteConfig } from "@/lib/data";
 
-const Footer = () => {
-  const quickLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Tech Stack & Skills', href: '/#stack-skills' },
-    { name: 'Projects', href: '/#projects' },
-    { name: 'Experience', href: '/#experience' },
-    { name: 'Contact', href: '/#contact' },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Linkedin size={24} />,
-      href: "https://linkedin.com/in/ravikhokle",
-      label: "LinkedIn"
-    },
-        {
-      icon: <Github size={24} />,
-      href: "https://github.com/ravikhokle",
-      label: "GitHub"
-    },
-    {
-          icon: <Mail size={24} />,
-          href: "mailto:ravikhokle1@gmail.com",
-          label: "Email"
-    }
-  ];
-
-  // Using Link for cross-page anchors; smooth scroll handled on home by Header.
+export default function Footer() {
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0b0b0d] text-white border-t border-[#2a2a30]">
-      <div className="section-divider" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-10">
-          {/* Brand Section */}
+    <footer className="border-t border-card">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16 pb-[max(2.5rem,env(safe-area-inset-bottom))]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
+            className="md:col-span-2"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="font-bold text-2xl text-white mb-4 inline-block"
-              style={{ transformOrigin: 'center' }}
-            >
-              <Link href="/" className="hover:text-violet-300 transition-colors">Ravi Khokle</Link>
-            </motion.div>
-            <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              Full Stack Developer (MERN) focused on scalable, performant web applications. Open to internships and entry-level roles.
+            <Link href="/" className="font-semibold text-lg text-foreground hover:text-accent transition-colors">
+              {siteConfig.name}
+            </Link>
+            <p className="text-sm text-accent font-medium mt-1">{siteConfig.title}</p>
+            <p className="text-sm text-muted mt-3 max-w-md leading-relaxed">
+              Building scalable, secure, and production-ready web applications.
             </p>
-            
-            {/* Social Links */}
-    <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-      whileHover={{ scale: 1.1 }}
-      className="w-12 h-12 bg-[#151519] border border-[#2a2a30] rounded-full flex items-center justify-center text-gray-400 hover:text-violet-300 hover:border-violet-400/60 transition-colors"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+            <div className="flex gap-3 mt-5">
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="w-9 h-9 rounded-lg border border-card bg-card flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-colors"
+              >
+                <Github size={16} />
+              </a>
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-lg border border-card bg-card flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-colors"
+              >
+                <Linkedin size={16} />
+              </a>
             </div>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ delay: 0.1 }}
           >
-            <h4 className="text-xl font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <motion.div whileHover={{ x: 5 }}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-violet-300 transition-colors duration-300"
-                    >
-                      {link.name}
-                    </a>
-                  </motion.div>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
+            <ul className="space-y-2.5">
+              {navItems.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`/#${link.id}`}
+                    className="text-sm text-muted hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
                 </li>
               ))}
             </ul>
           </motion.div>
-
         </div>
+
+        <div className="section-divider mt-10 mb-6" />
+        <p className="text-xs text-muted text-center">
+          © {year} {siteConfig.name}. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

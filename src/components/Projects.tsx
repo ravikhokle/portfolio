@@ -1,263 +1,165 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
-import Image from 'next/image';
-import { useState } from 'react';
-
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  features: string[];
-  tech: string[];
-  image: string;
-  liveUrl?: string;
-  githubUrl?: string;
-  featured?: boolean;
-};
-
-const projects: Project[] = [
-  {
-    id: 4,
-    title: "Emergex – Emergency Coordination System",
-    description: "Real-time emergency coordination with live GPS tracking and multi-role dispatch.",
-    features: [
-      "SOS intake with auto-dial (108) and GPS location capture",
-      "Multi-role system: Citizen, ERS, Ambulance, Hospital, Traffic Police",
-      "Live ambulance tracking with shared map and ETA updates",
-      "Automated hospital & ambulance allocation by proximity"
-    ],
-    tech: ["React", "Node.js", "Express.js", "MongoDB", "Geolocation API"],
-    image: "/Images/projects/emergex.png",
-    liveUrl: "https://emergexnew.vercel.app/",
-    githubUrl: "https://github.com/ravikhokle/Navonmesh",
-    featured: true,
-  },
-  {
-    id: 1,
-    title: "Social Saver Bot",
-    description: "WhatsApp bot that auto-categorizes and stores social media links in a dashboard.",
-    features: [
-      "WhatsApp bot via Twilio for real-time link ingestion",
-      "AI-powered categorization and tagging using LLM APIs",
-      "Searchable dashboard with filters by category and platform"
-    ],
-    tech: ["Next.js", "Node.js", "MongoDB", "Twilio API", "Gemini API"],
-    image: "/Images/projects/socialSaverBot.png",
-    liveUrl: "https://socialsaverbot.vercel.app/",
-    githubUrl: "https://github.com/ravikhokle/social-saver-bot",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Resume Builder",
-    description: "Resume builder with real-time preview and PDF export.",
-    features: [
-      "AI-generated summaries via Gemini API",
-      "Real-time resume preview with live editing",
-      "PDF generation and export using PDFKit"
-    ],
-    tech: ["React", "Node.js", "MongoDB", "PDFKit", "Gemini API"],
-    image: "/Images/projects/resumeBuilder.png",
-    liveUrl: "https://resumebuilder.ninja/",
-    githubUrl: "https://github.com/ravikhokle/Ai-Powered-Resume-Builder",
-  },
-  {
-    id: 3,
-    title: "InternshipYatra",
-    description: "Role-based internship platform for HRs and applicants.",
-    features: [
-      "Role-based access for employers and applicants",
-      "Employer dashboard with applicant tracking",
-      "JWT authentication and secure file uploads"
-    ],
-    tech: ["React", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
-    image: "/Images/projects/internshipYatra.png",
-    liveUrl: "https://internshipyatra.ravikhokle.site",
-    githubUrl: "https://github.com/ravikhokle/InternshipYatra",
-  }
-];
+import { motion } from "framer-motion";
+import { ExternalLink, Github, X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import SectionHeading from "@/components/SectionHeading";
+import { projects } from "@/lib/data";
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0
-  }
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const ProjectCard = ({ project, onImageClick }: { project: Project; onImageClick: (image: string) => void; }) => {
-  return (
-    <motion.div
-      variants={itemVariants}
-      whileHover={{ y: -6, scale: 1.015 }}
-      className="group h-full"
-    >
-      <div className="relative flex flex-col h-full bg-[#151519] rounded-2xl transition-all duration-300 overflow-hidden border border-[#2a2a30] hover:border-violet-400/50 hover:shadow-xl hover:shadow-violet-500/15">
-        <div className="p-6 pb-0">
-          <h3 className="text-lg font-bold tracking-tight text-white">{project.title}</h3>
-          <p className="text-sm text-gray-300 mt-1.5 leading-relaxed">{project.description}</p>
-        </div>
-
-        <div
-          className="relative h-44 mx-6 my-4 overflow-hidden bg-[#1d1d23] rounded-lg cursor-pointer border border-[#2a2a30]"
-          onClick={() => onImageClick(project.image)}
-        >
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-            sizes="(min-width: 1024px) 640px, 100vw"
-            priority={project.featured}
-          />
-        </div>
-
-        <div className="p-6 pt-2 space-y-4 flex-1 flex flex-col">
-          <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Key Features</h4>
-            <ul className="space-y-1.5 text-gray-300 text-sm">
-              {project.features.map((feature) => (
-                <li key={feature} className="flex items-baseline gap-2">
-                  <span className="text-violet-400 text-[10px]">●</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="pt-2 mt-auto">
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tech</h4>
-            <div className="flex flex-wrap gap-1.5">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-0.5 bg-[#222228] text-gray-300 rounded-full text-xs font-medium border border-[#2e2e36]"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-3 pt-4">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-violet-500 hover:bg-violet-400 text-white rounded-md text-sm font-medium transition-colors"
-              >
-                Live Demo
-              </a>
-            )}
-
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#25252c] hover:bg-[#31313a] text-white rounded-md text-sm font-medium transition-colors"
-              >
-                Source Code
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-const Projects = () => {
+export default function Projects() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-14 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0b0b0d] text-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14 lg:mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-            <span className="text-violet-400">PROJECTS</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Projects that showcase skills across frontend, backend, and deployment.
-          </p>
-        </motion.div>
+    <section id="projects" className="section-padding">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading
+          label="Featured Projects"
+          title="Projects"
+          description="Production-ready applications showcasing full-stack development, authentication, and cloud deployment."
+        />
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8"
         >
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} onImageClick={setSelectedImage} />
+            <motion.article
+              key={project.id}
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              className="group flex flex-col rounded-2xl border border-card bg-card overflow-hidden hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+            >
+              <div
+                className="relative h-48 sm:h-52 bg-background border-b border-card cursor-pointer overflow-hidden"
+                onClick={() => setSelectedImage(project.image)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setSelectedImage(project.image)}
+                aria-label={`View screenshot of ${project.title}`}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                />
+                {project.featured && (
+                  <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-accent/90 text-white text-xs font-medium hidden sm:inline-block">
+                    Featured
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col flex-1 p-6">
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-foreground tracking-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-accent font-medium mt-0.5">{project.subtitle}</p>
+                  <p className="text-sm text-muted mt-2 leading-relaxed">{project.description}</p>
+                </div>
+
+                <ul className="space-y-1.5 mb-4 flex-1">
+                  {project.highlights.slice(0, 4).map((h) => (
+                    <li key={h} className="flex items-start gap-2 text-sm text-muted">
+                      <span className="text-accent mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent" />
+                      {h}
+                    </li>
+                  ))}
+                  {project.highlights.length > 4 && (
+                    <li className="text-xs text-muted/70 pl-3">
+                      +{project.highlights.length - 4} more features
+                    </li>
+                  )}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-0.5 rounded-md bg-background border border-card text-xs text-muted"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 pt-4 border-t border-card">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity min-h-[44px]"
+                  >
+                    <ExternalLink size={15} />
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-lg border border-card bg-background text-foreground text-sm font-medium hover:border-accent/50 transition-colors min-h-[44px]"
+                  >
+                    <Github size={15} />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
 
-        {/* More projects CTA */}
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <a
             href="https://github.com/ravikhokle"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-transparent border border-[#383842] hover:bg-[#19191f] text-gray-200 rounded-md text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
           >
-            More projects on GitHub
+            <Github size={16} />
+            View more on GitHub
           </a>
         </div>
+      </div>
 
-        {/* Fullscreen Image Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div
-              className="relative max-w-6xl max-h-[90vh] w-full"
-              onClick={(e) => e.stopPropagation()}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[110] flex items-center justify-center p-3 sm:p-4"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project screenshot preview"
+        >
+          <div className="relative w-full max-w-5xl h-[85dvh] sm:h-[80vh]" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 z-10 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent text-white text-sm font-medium shadow-lg"
+              aria-label="Close preview"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
-              >
-                <X size={24} />
-              </button>
-
-              {/* Fullscreen Image */}
-              <div className="relative w-full h-[80vh]">
-                <Image
-                  src={selectedImage}
-                  alt="Project Screenshot"
-                  fill
-                  className="object-contain rounded-lg"
-                />
-              </div>
+              <X size={18} />
+              Close
+            </button>
+            <div className="relative w-full h-full pt-12">
+              <Image src={selectedImage} alt="Project screenshot" fill className="object-contain rounded-lg" />
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
-};
-
-export default Projects;
+}

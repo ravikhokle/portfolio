@@ -1,82 +1,108 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import Script from "next/script";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import { siteConfig } from "@/lib/data";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#09090b",
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ravikhokle.dev"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Ravi Khokle - Full Stack Developer (MERN)",
-    template: "%s | Ravi Khokle",
+    default: `${siteConfig.name} - ${siteConfig.title}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
-  keywords:
-    "Ravi Khokle, Full Stack Developer, MERN, React, Next.js, Node.js, MongoDB, PostgreSQL, AWS, Internship, Entry-level",
-  authors: [{ name: "Ravi Khokle", url: "https://ravikhokle.dev" }],
-  alternates: {
-    canonical: "/",
+  description: siteConfig.description,
+  keywords: [
+    "Ravi Khokle",
+    "Full Stack Developer",
+    "MERN",
+    "React",
+    "Next.js",
+    "Node.js",
+    "MongoDB",
+    "Backend Developer",
+    "Software Engineer",
+    "Pune",
+  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
   },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Ravi Khokle - Full Stack Developer",
-    description: "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
+    title: `${siteConfig.name} - ${siteConfig.title}`,
+    description: siteConfig.description,
     type: "website",
-    url: "https://ravikhokle.dev/",
-    siteName: "Ravi Khokle",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "en_IN",
     images: [
       {
-        url: "/Images/me/ravikhokle.png",
+        url: siteConfig.image,
         width: 1200,
         height: 630,
-        alt: "Ravi Khokle - Full Stack Developer",
+        alt: `${siteConfig.name} - ${siteConfig.title}`,
       },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   twitter: {
     card: "summary_large_image",
-    title: "Ravi Khokle - Full Stack Developer",
-    description:
-      "Full Stack Developer (MERN) building scalable, performant web applications with React, Node.js, and MongoDB. Actively seeking full-time and internship opportunities.",
-    creator: "@ravikhokle",
-    images: ["/Images/me/ravikhokle.png"],
+    title: `${siteConfig.name} - ${siteConfig.title}`,
+    description: siteConfig.description,
+    images: [siteConfig.image],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  jobTitle: siteConfig.title,
+  url: siteConfig.url,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Pune",
+    addressRegion: "Maharashtra",
+    addressCountry: "IN",
+  },
+  sameAs: [siteConfig.github, siteConfig.linkedin],
+  knowsAbout: [
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "REST APIs",
+    "JWT Authentication",
+    "AWS",
+    "Docker",
+  ],
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
-      <body className={`${plusJakartaSans.variable} ${plusJakartaSans.className} overflow-x-hidden relative`}>
-        <ParticlesBackground />
-        {/* Organization & Website JSON-LD */}
+    <html lang="en" className="overflow-x-hidden dark">
+      <body className={`${inter.variable} ${inter.className} overflow-x-hidden antialiased bg-background text-foreground`}>
         <Script
-          id="ld-org"
+          id="ld-person"
           type="application/ld+json"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Ravi Khokle",
-              url: "https://ravikhokle.dev/",
-              sameAs: [
-                "https://github.com/ravikhokle",
-                "https://www.linkedin.com/in/ravikhokle/",
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <div className="relative z-10">{children}</div>
+        {children}
       </body>
     </html>
   );
