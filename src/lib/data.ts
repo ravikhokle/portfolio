@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Ravi Khokle",
-  title: "Full Stack Developer (MERN)",
+  title: "Full Stack Developer",
   description:
     "Building scalable, secure, and production-ready web applications using React.js, Next.js, Node.js, Express.js, and MongoDB.",
   url: "https://ravikhokle.dev",
