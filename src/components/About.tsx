@@ -17,7 +17,7 @@ export default function About() {
           className="space-y-6 text-base md:text-lg text-muted leading-relaxed"
         >
           <p>
-            I&apos;m Ravi Khokle, a Full Stack Developer currently pursuing a Master of Computer
+            I&apos;m Ravi, a Full Stack Developer currently pursuing a Master of Computer
             Applications (MCA). I enjoy designing and developing scalable web applications that
             solve real-world problems.
           </p>
